@@ -1,0 +1,19 @@
+<!--pages/home/home/index.wxml-->
+<scroll-view class="container" scroll-y="true">
+  <ad wx:if="{{bannerUnitId}}" unit-id="{{bannerUnitId}}" ad-intervals="30"></ad>
+  <view wx:if="{{!appData.isRelease&&user.extend.topMessage}}" class="top_info">
+    <view style="white-space: pre-wrap;">{{user.extend.topMessage}}</view>
+  </view>
+  <view class="items-list-wrap">
+    <block wx:for="{{classlist}}" wx:for-item="item" wx:key="index">
+      <view class="item-list-wrap" data-id="{{item}}" bind:tap="selectTop">
+        <view class="item_left">
+          <text></text>
+          <text class="item_level">{{item.sort}}</text>
+        </view>
+        <image class="imgs data-v-8d1cd75a" lazyLoad="{{true}}" src="{{item.icon}}"></image>
+        <text class="item_name">{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+</scroll-view>

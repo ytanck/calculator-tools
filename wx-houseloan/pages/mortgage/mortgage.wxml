@@ -1,0 +1,348 @@
+<view class='mortgage'>
+    <!-- 房贷计算器 -->
+    <view wx:if="{{calculator == 0}}" class='top'>
+        <view class='nav'>
+            <view bindtap='changeMain' data-index="0" class='nav-item {{isshow == 0?"active":""}}'>
+                商贷
+            </view>
+            <view bindtap='changeMain' data-index="1" class='nav-item {{isshow == 1?"active":""}}'>
+                公积金
+            </view>
+            <view bindtap='changeMain'data-index="2" class='nav-item {{isshow == 2?"active":""}}'>
+                组合贷
+            </view>
+        </view>
+        <!-- nav结束 -->
+        <view class='list'>
+            <view class='list-item'>
+                <view class='item-left'>
+                    还款方式
+                </view>
+                <view class='item-right fs'>
+                    <view data-index="0" bindtap='changeHkMethod'>
+                        <text class='dot {{hkMethod == 0?"active":""}}'></text>
+                        <text>等额本息</text>
+                    </view>
+                    <view data-index="1" bindtap='changeHkMethod'>
+                        <text class='dot {{hkMethod == 1?"active":""}}'></text>
+                        <text>等额本金</text>
+                    </view>
+                </view>                 
+            </view>
+            <!--计算方式 -->
+            <view class='list-item' wx:if="{{isshow != 2}}">
+                <view class='item-right'>
+                    <picker style='width: 100%' bindchange="bindPickerChange" value="{{index}}" range="{{calculation}}">
+                       <view style='display: flex;'>
+                            <view style='width: 50%' class="picker_title">
+                                计算方式
+                            </view>
+                            <view style='width: 50%; display: flex;align-items: center; justify-content:flex-end;'>
+                                <view class='picker_item'>
+                                    {{calculation[index]}}
+                                </view>
+                                <image class='lower_corner' src="/images/lower_corner.png"></image>
+                            </view>
+                       </view>
+                    </picker>
+                </view>                 
+            </view>
+            <!-- 贷款总额 -->
+            <view class='list-item {{verifyTotalLoans == 0 ? "": "active"}}' wx:if="{{index == 0 || isshow == 2}}">
+                <view class='item-left'>
+                    贷款总额
+                </view>
+                <view class='item-right'>
+                        <input bindblur='verifyTotalLoans' bindinput='changeTotalLoans' class='total-loans' value='{{totalLoans}}' type='number' placeholder='请输入贷款总额'></input>
+                        <text>万</text>
+                </view>                 
+            </view>
+            <!-- 公积金贷款总额 -->
+             <view class='list-item {{verifyGjijinloan == 0 ? "": "active"}}' wx:if="{{isshow == 2}}">
+                <view class='item-left'>
+                    公积金贷款
+                </view>
+                <view class='item-right'>
+                        <input bindblur='verifyGjijinloan' bindinput='changeGjijinloan' class='total-loans' value='{{gjijinloan}}' type='number' placeholder='请输入公积金贷款总额'></input>
+                        <text>万</text>
+                </view>                 
+            </view>
+            <!-- 单价 -->
+            <view class='list-item {{verifyUnivalent == 0 ? "": "active"}}' wx:if="{{index == 1 && isshow != 2}}">
+                <view class='item-left'>
+                    单价
+                </view>
+                <view class='item-right'>
+                        <input bindblur='verifyUnivalent' bindinput='chengeUnivalent' class='total-loans' value='{{unitPrice}}' type='number' placeholder='请输入单价'></input>
+                        <text>元/㎡</text>
+                </view>                 
+            </view>
+            <!-- 面积 -->
+            <view class='list-item {{verifyArea == 0 ? "": "active"}}' wx:if="{{index == 1 && isshow != 2}}">
+                <view class='item-left'>
+                    面积
+                </view>
+                <view class='item-right'>
+                        <input bindblur='verifyArea' bindinput='chengeArea' class='total-loans' value='{{area}}' type='number' placeholder='请输入面积'></input>
+                        <text>㎡</text>
+                </view>                 
+            </view>
+            <!-- 按揭年数 -->
+            <view class='list-item'>
+                <view class='item-right'>
+                    <picker style='width: 100%' bindchange="bindPickerChangeYears" value="{{index}}" range="{{years}}">
+                       <view style='display: flex;'>
+                            <view style='width: 50%' class="picker_title">
+                                按揭年数
+                            </view>
+                            <view style='width: 50%; display: flex;align-items: center; justify-content:flex-end;'>
+                                <view class='picker_item'>
+                                    {{years[yearsIndex]}}({{nper}})
+                                </view>
+                                <image class='lower_corner' src="/images/lower_corner.png"></image>
+                            </view>
+                       </view>
+                    </picker>
+                </view>                 
+            </view>
+             <!-- 按揭成数 -->
+            <view class='list-item' wx:if="{{index == 1 && isshow != 2}}">
+                <view class='item-right'>
+                    <picker style='width: 100%' bindchange="bindPickerChangeRatio" value="{{index}}" range="{{ratio}}">
+                       <view style='display: flex;'>
+                            <view style='width: 50%' class="picker_title">
+                                按揭成数
+                            </view>
+                            <view style='width: 50%; display: flex;align-items: center; justify-content:flex-end;'>
+                                <view class='picker_item'>
+                                    {{ratio[ratioIndex]}}
+                                </view>
+                                <image class='lower_corner' src="/images/lower_corner.png"></image>
+                            </view>
+                       </view>
+                    </picker>
+                </view>                 
+            </view>
+            <!-- 首次还款日期 -->
+            <view class='list-item'>
+                <view class='item-right'>
+                    <picker style='width: 100%' bindchange="bindDateChange" value="{{date}}" mode="date">
+                       <view style='display: flex;'>
+                            <view style='width: 50%' class="picker_title">
+                                首次还款日期
+                            </view>
+                            <view style='width: 50%; display: flex;align-items: center; justify-content:flex-end;'>
+                                <view class='picker_item'>
+                                    {{date}}
+                                </view>
+                                <image class='lower_corner' src="/images/lower_corner.png"></image>
+                            </view>
+                       </view>
+                    </picker>
+                </view>                 
+            </view>
+            <!-- 商贷利率 -->
+            <view class='list-item' wx:if="{{isshow == 0}}">
+                <view class='item-left'>
+                    商贷利率
+                </view>
+                <view class='item-right'>
+                    <view>
+                        <text class='new-rate'>最新基准利率</text>
+                    </view>
+                    <!-- <view> -->
+                        <!-- <text class='rate-num'>4.9</text> -->
+                        <input bindinput='resetRate' class='rate-num' type='number' value='{{sdRate}}'></input>
+                        %
+                    <!-- </view> -->
+                </view>                 
+            </view>
+            <!-- 公积金利率 -->
+            <view class='list-item' wx:if="{{isshow == 1}}">
+                <view class='item-left'>
+                    公积金利率
+                </view>
+                <view class='item-right'>
+                    <view>
+                        <text class='new-rate'>最新基准利率</text>
+                    </view>
+                    <!-- <view> -->
+                        <!-- <text class='rate-num'>4.9</text> -->
+                        <input class='rate-num' type='number' value='{{providentFundRate}}'></input>
+                        %
+                    <!-- </view> -->
+                </view>                 
+            </view>
+            <!-- 组合贷利率 -->
+            <view class='list-item' wx:if="{{isshow == 2}}">
+                <view class='item-left'>
+                    商贷利率
+                </view>
+                <view class='item-right'>
+                    <view>
+                        <text class='new-rate'>最新基准利率</text>
+                    </view>
+                        <input class='rate-num' type='number' value='{{sdRate}}'></input>
+                        %
+                </view>                 
+            </view>
+            <view class='list-item' wx:if="{{isshow == 2}}">
+                <view class='item-left'>
+                    公积金利率
+                </view>
+                <view class='item-right'>
+                    <view>
+                        <text class='new-rate'>最新基准利率</text>
+                    </view>
+                        <input class='rate-num' type='number' value='{{providentFundRate}}'></input>
+                        %
+                </view>                 
+            </view>
+        </view>
+        <!-- list结束 -->
+        <view class='btn-box'>
+            <text class='text'>等额本金还款逐月减少, 等额本息还款每月相同</text>
+            <button bindtap='submit' class='submit'>计算</button>
+            <button class='reset' bindtap='reset'>清空</button>
+        </view>
+        <!-- btn-box结束 -->
+    </view>
+    <!-- 房贷计算器结束 -->
+
+
+    <!-- 税费计算器 -->
+    <view wx:if="{{calculator == 1}}" class='top'>
+        <view class='nav'>
+            <view bindtap='twoChangeMain' data-index="0" class='nav-item two {{twoIsshow == 0?"active":""}}'>
+                新房
+            </view>
+            <view bindtap='twoChangeMain' data-index="1" class='nav-item two {{twoIsshow == 1?"active":""}}'>
+                二手房
+            </view>
+        </view>
+        <view class='list' wx:if="{{twoIsshow == 0}}">
+            <!-- 单价 -->
+            <view class='list-item {{verifyNewHomeMoney == 0 ? "": "active"}}'>
+                <view class='item-left'>
+                    单价
+                </view>
+                <view class='item-right'>
+                        <input bindblur='verifyNewHomeMoneyFUN' bindinput='changeNewHomeMoney' class='total-loans' value='{{newHomeMoney}}' type='number' placeholder='请输入单价'></input>
+                        <text>元/㎡</text>
+                </view>                 
+            </view>
+            <!-- 面积 -->
+            <view class='list-item {{verifyNewHomeArea == 0 ? "": "active"}}'>
+                <view class='item-left'>
+                    面积
+                </view>
+                <view class='item-right'>
+                        <input bindblur='verifyNewHomeAreaFUN' bindinput='changeNewHomeArea' class='total-loans' value='{{newHomeArea}}' type='number' placeholder='请输入面积'></input>
+                        <text>㎡</text>
+                </view>                 
+            </view>
+        </view>
+
+        <!-- 二手房列表 -->
+        <view class='list' wx:if="{{twoIsshow == 1}}">
+            <!-- 房屋面积 -->
+            <view class='list-item {{verifyTwoHandHomeArea == 0 ? "": "active"}}'>
+                <view class='item-left'>
+                    房屋面积
+                </view>
+                <view class='item-right'>
+                        <input bindinput='changeTwoHandHomeArea' bindblur='verifyTwoHandHomeArea' class='total-loans' value='{{twoHandHomeArea}}' type='number' placeholder='请输入面积'></input>
+                        <text>㎡</text>
+                </view>                 
+            </view>
+            <!-- 房屋总价 -->
+            <view class='list-item {{verifyTwoHandHomePrice == 0 ? "": "active"}}'>
+                <view class='item-left'>
+                    房屋总价
+                </view>
+                <view class='item-right'>
+                        <input bindinput='changeTwoHandHomePrice' bindblur='verifyTwoHandHomePrice' class='total-loans' value='{{twoHandHomePrice}}' type='number' placeholder='请输入总价'></input>
+                        <text>万元</text>
+                </view>                 
+            </view>
+            <!-- 房屋原价 -->
+            <view class='list-item {{verifyTwoHandHomeOldPrice == 0 ? "": "active"}}'>
+                <view class='item-left'>
+                    房屋原价
+                </view>
+                <view class='item-right'>
+                        <input bindinput='changeTwoHandHomeOldPrice' bindblur='verifyTwoHandHomeOldPrice' class='total-loans' value='{{twoHandHomeOldPrice}}' type='number' placeholder='请输入原价'></input>
+                        <text>万元</text>
+                </view>                 
+            </view>
+            <!-- 购置年限 -->
+            <view class='list-item'>
+                <view class='item-right'>
+                    <picker style='width: 100%' bindchange="bindPickerChangeBuyYears" value="{{index}}" range="{{buyYears}}">
+                       <view style='display: flex;'>
+                            <view style='width: 50%' class="picker_title">
+                                购置年限
+                            </view>
+                            <view style='width: 50%; display: flex;align-items: center; justify-content:flex-end;'>
+                                <view class='picker_item'>
+                                    {{buyYears[buyYearsIndex]}}
+                                </view>
+                                <image class='lower_corner' src="/images/lower_corner.png"></image>
+                            </view>
+                       </view>
+                    </picker>
+                </view>                 
+            </view>
+             <view class='list-item'>
+                <view class='item-left'>
+                    买房唯一
+                </view>
+                <view class='item-right fs'>
+                    <view data-index="0" bindtap='changeOnly'>
+                        <text class='dot {{isBuyOnly == 0?"active":""}}'></text>
+                        <text>是</text>
+                    </view>
+                    <view data-index="1" bindtap='changeOnly'>
+                        <text class='dot {{isBuyOnly == 1?"active":""}}'></text>
+                        <text>否</text>
+                    </view>
+                </view>                 
+            </view>
+             <view class='list-item'>
+                <view class='item-left'>
+                    是否首套
+                </view>
+                <view class='item-right fs'>
+                    <view data-index="0" bindtap='changeIsOne'>
+                        <text class='dot {{isOne == 0?"active":""}}'></text>
+                        <text>是</text>
+                    </view>
+                    <view data-index="1" bindtap='changeIsOne'>
+                        <text class='dot {{isOne == 1?"active":""}}'></text>
+                        <text>否</text>
+                    </view>
+                </view>                 
+            </view>
+        </view>
+         <!-- list结束 -->
+        <view class='btn-box'>
+            <text class='text'>等额本金还款逐月减少, 等额本息还款每月相同</text>
+            <button bindtap='sf_submit' class='submit'>计算</button>
+            <button class='reset' bindtap='sf_reset'>清空</button>
+        </view>
+    </view>
+    <!-- 税费计算器结束 -->
+    <view bindtap='gotoHolp' class='holp'>
+        <view>
+            <image class='holp_icon' src='/images/holp.png'></image>
+            <text>帮助</text>
+            <image class='r_corner' src='/images/r_corner.png'></image>
+        </view> 
+    </view>
+    <!-- 帮助结束 -->
+    <view style='padding-bottom: {{isIpx? "40rpx": ""}}' class='footer-box' wx:if="{{true}}">
+        <view bindtap='changeCalculator' data-index='0' data-title="房贷计算" class='fd {{calculator == 0 ? "active" : ""}}'>房贷计算器</view>
+        <text class='line'></text>
+        <view bindtap='changeCalculator' data-index='1' data-title="税费计算" class='taxes {{calculator == 1 ? "active" : ""}}'>税费计算器</view>
+    </view>
+</view>

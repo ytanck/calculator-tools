@@ -1,0 +1,117 @@
+<!-- index.wxml -->
+<view class="container">
+  <view class="form-group loan" a:if="{{loanType == 1}}">
+    <view class="loanItem">
+      <label>商业贷款总额(万)</label>
+      <input type="digit" value="{{businessTotalLoanStr}}" placeholder="请输入商业贷款金额" class="totalLoan line" onInput="businessTotalLoanInput" focus="{{businessFocus}}" onFocus="inputFocus" onBlur="inputBlur" />
+    </view>
+  </view>
+  <view class="form-group loan" a:if="{{loanType == 2}}">
+    <view class="loanItem">
+      <label>公积金贷款金额(万)</label>
+      <input type="digit" value="{{gjjTotalLoanStr}}" placeholder="请输入公积金贷款金额" class="totalLoan line" onInput="gjjTotalLoanInput" focus="{{gjjFocus}}" onFocus="inputFocus" onBlur="inputBlur" />
+    </view>
+  </view>
+  <view class="form-group loan double" a:if="{{loanType == 3}}">
+    <view class="loanItem">
+      <label>商业贷款总额(万)</label>
+      <input type="digit" value="{{businessTotalLoanStr}}" placeholder="请输入商业贷款金额" class="totalLoan line" onInput="businessTotalLoanInput" focus="{{businessFocus}}" onFocus="inputFocus" onBlur="inputBlur" />
+    </view>
+    <view class="loanItem">
+      <label>公积金贷款金额(万)</label>
+      <input type="digit" value="{{gjjTotalLoanStr}}" placeholder="请输入公积金贷款金额" class="totalLoan line" onInput="gjjTotalLoanInput" focus="{{gjjFocus}}" onFocus="inputFocus" onBlur="inputBlur" />
+    </view>
+  </view>
+
+  <view class="form-group">
+    <radio-group class="radioGroup" onChange="loanTypeChange">
+      <label a:for="{{loanTypeArr}}" a:key="id">
+        <radio value="{{item.id}}" checked="{{item.checked}}" /> {{item.text}}
+      </label>
+    </radio-group>
+  </view>
+  <view class="form-group line">
+    <label>还款方式</label>
+    <picker mode="selector" range="{{paymentMethodArr}}" value="{{paymentMethodIndex}}" onChange="paymentMethodchange" range-key="text">
+      <view>
+      <text>{{paymentMethodArr[paymentMethodIndex].text}}</text>
+      <icon class="dropdown"></icon>
+      </view>
+    </picker>
+  </view>
+  <view class="form-group line">
+    <label>还款年数</label>
+    <picker mode="selector" range="{{paymentYearArr}}" value="{{paymentYearIndex}}" onChange="paymentYearchange" range-key="text">
+      <view>
+        <text>{{paymentYearArr[paymentYearIndex].text}}</text>
+      <icon class="dropdown"></icon>
+      </view>
+    </picker>
+  </view>
+  <view class="form-group line">
+    <label>首次还款日期</label>
+    <picker mode="date" value="{{startDateStr}}" onChange="startDateChange" range-key="text">
+      <view>
+        <text>{{startDateStr}}</text>
+      <icon class="dropdown"></icon>
+      </view>
+    </picker>
+  </view>
+  <!-- 利率类型 -->
+  <view class="rate-section" a:if="{{showBusiness}}">
+    <view class="form-group line">
+      <label>利率标准</label>
+      <picker mode="selector" value="{{businessLoanRateTypeIndex}}" range="{{businessLoanRateTypeArr}}" onChange="businessLoanRateTypeChange" range-key="text">
+        <view>
+          <text>{{businessLoanRateTypeArr[businessLoanRateTypeIndex].text}}</text>
+        <icon class="dropdown"></icon>
+        </view>
+      </picker>
+    </view>
+    <view class="rate-section" a:if="{{LPR}}">
+      <view class="form-group line">
+        <view onTap="LPRTooltip" class="question">LPR
+          <image class="question-icon" src="../../images/question.png" />
+        </view>
+        <view class="input-label">
+          <input type="digit" value="{{LPRValue}}" class="value-input" onInput="LPRValueInput" />
+          <label>%</label>
+        </view>
+      </view>
+      <view class="form-group line">
+        <label>基点</label>
+        <view class="input-label">
+          <input type="digit" value="{{basePoint}}" class="value-input" onInput="basePointInput" />
+          <label>‰</label>
+        </view>
+      </view>
+      <view class="form-group line">
+        <label>贷款利率</label>
+        <label>{{LPRValueText}}% + {{basePointText}}‰ = {{LPRRateValue}}%</label>
+      </view>
+    </view>
+
+    <view class="form-group line" a:if="{{!LPR}}">
+      <label>贷款利率</label>
+      <picker mode="selector" value="{{businessLoanRateIndex}}" range="{{businessLoanRateArr}}" onChange="businessLoanRateChange" range-key="text">
+        <view>
+          <text>{{businessLoanRateArr[businessLoanRateIndex].text}}</text>
+        <icon class="dropdown"></icon>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="form-group line" a:if="{{showGJJ}}">
+    <label>公积金贷款利率</label>
+    <picker mode="selector" value="{{gjjLoanRateIndex}}" range="{{gjjLoanRateArr}}" onChange="gjjLoanRateChange" range-key="text">
+      <view>
+        <text>{{gjjLoanRateArr[gjjLoanRateIndex].text}}</text>
+      <icon class="dropdown"></icon>
+      </view>
+    </picker>
+  </view>
+  <view class="actions" style="bottom:{{actionsBottom}}px">
+    <button type="primary" onTap="calculateLoan">开始计算</button>
+  </view>
+</view>

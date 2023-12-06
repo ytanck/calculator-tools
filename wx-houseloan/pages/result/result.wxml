@@ -1,0 +1,1 @@
+<view>结果： {{result.result}}</view>

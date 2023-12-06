@@ -1,0 +1,47 @@
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
+<view class="fd-details">
+    <view class='top clearFix'>
+        <view class='fl fd-details-img-box'>
+            <image class='fd-details-img' src='/images/fd_js_info.png'></image>
+        </view>
+        <view class='fx fr'>
+            <image class='fxImg' src='/images/share.png'></image>
+            <text>分享</text>
+        </view>
+    </view>
+    <view class='list'>
+        <view wx:for="{{arr}}" wx:key="this" class='li-item'>
+            <image wx:if="{{item.isShow == false}}" bindtap='changeShow' data-index="{{index}}" class="modal-icon" src='/images/open.png'></image>
+            <image wx:if="{{item.isShow == true}}" bindtap='changeShow' data-index="{{index}}" class="modal-icon" src='/images/close.png'></image>
+
+            <view class='li-title'>{{date_year + index}}年</view>
+            <view class='li-main'>
+                <view class='li-main-left'>
+                    <view><text class='money'>{{filters.toFix(item.hk)}}</text> <text class='yuan'>元</text></view>
+                    <view class='li-main-bottom-text'>本年还款</view>
+                </view>
+                <view class='li-main-right'>
+                    <view><text class='money'>{{filters.toFix(item.lx)}}</text> <text class='yuan'>元</text></view>
+                    <view class='li-main-bottom-text'>本年利息</view>
+                </view>
+            </view>
+            <view class='li-bottom-line'></view>
+            <view wx:if="{{item.isShow == true}}" class='table-list'>
+                <view class='th'>
+                    <view class='td'>月份</view>
+                    <view class='td'>本期还款</view>
+                    <view class='td'>本期本金</view>
+                    <view class='td'>本期利息</view>
+                    <view class='td'>本期剩余</view>
+                </view>
+                <view wx:for="{{item.months}}" wx:for-item="k" wx:for-index="i" wx:key="this" class='tr  {{index == 0 && i == 0 ? "active" : ""}}'>
+                    <view class='td'>{{item.month + i}}</view>
+                    <view class='td'>{{k.monthRepayment}}</view>
+                    <view class='td'>{{k.everyMonthRepayment_bj}}</view>
+                    <view class='td'>{{k.everyMonthRepayment_lx}}</view>
+                    <view class='td'>{{k.result}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

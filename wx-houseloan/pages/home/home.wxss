@@ -1,0 +1,26 @@
+.home view {
+    line-height: 1;
+}
+.home image {
+    width: 100%;
+}
+.home .home-top-search {
+    display: flex;
+    background: #fa785c;
+    padding: 16rpx 0;
+}
+.home .home-top-search button {
+    width: 570rpx;
+    border: none;
+    margin: 0 28rpx;
+    font-size: 25rpx;
+    background: #fff;
+    height: 58rpx;
+    border-radius: 58rpx;
+    text-align: left;
+}
+.home .home-top-search .fx {
+    background: #fa785c!important;
+    transform: translateX(-15rpx);
+    line-height: 58rpx;
+}

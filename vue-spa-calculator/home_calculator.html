@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <title>房贷计算器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta hid="description" name="description" content="房贷计算器" />
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="css/minit-ui.css">
+
+<style scoped>
+  body {
+    margin: 0;
+    padding: 0
+  }
+
+  .gjj-title1 {
+    position: relative;
+    top: 15px;
+    left: 0;
+    /* height: 160px */
+  }
+
+  #main1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  #main2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  #main3 {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .desc1 {
+    position: absolute;
+    left: 100px;
+    top: 0
+  }
+
+  .main-value {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    line-height: 15px;
+    left: 0;
+    top: 35px;
+    z-index: 999;
+    text-align: center;
+    font-size: 12px
+  }
+ .mint-radio-input:checked + .mint-radio-core {
+   background-color:#f08300;
+    border-color: #f08300;
+ }
+  .desc2 {
+    position: absolute;
+    left: 60%;
+    top: 0
+  }
+
+  .desc1 p {
+    margin: 2px
+  }
+
+  .desc2 p {
+    margin: 2px;
+  }
+
+  .main-icon1 {
+    width: 15px;
+    height: 15px;
+    background:#2f4554;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 2px
+  }
+    .main-icon2 {
+    width: 15px;
+    height: 15px;
+    background:#c23531;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 2px
+  }
+
+  .main-bottom {
+    position: absolute;
+    left: 10px;
+    bottom: 15px
+  }
+
+  select {
+    position: absolute;
+    right: 45px;
+    bottom: 10px;
+    width: 50%;
+    height: 25px;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+  }
+
+  input {
+    position: absolute;
+    right: 45px;
+    bottom: 10px;
+    width: 50%;
+    height: 20px;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+  }
+</style>
+
+</head>
+
+<body class="bodyBg">
+  <div id="app">
+    <div style="display: none;" id="showApp">
+      <!--head-->
+      <!-- <mt-header title="房贷计算器">
+         <router-link to="/www.baidu.com" slot="left">
+          <mt-button icon="back"></mt-button>
+        </router-link> 
+        <mt-button icon="more" slot="right"></mt-button>
+      </mt-header> -->
+      <div>
+        <mt-navbar v-model="selected">
+          <mt-tab-item id="公积金贷款">公积金贷款</mt-tab-item>
+          <mt-tab-item id="商业贷款">商业贷款</mt-tab-item>
+          <mt-tab-item id="组合贷款">组合贷款</mt-tab-item>
+        </mt-navbar>
+        <!-- tab-container -->
+        <mt-tab-container v-model="selected">
+          <!--第一页-->
+          <mt-tab-container-item id="公积金贷款">
+            <div class="gjj-title1" ref="page1" style="height:40px">
+              <!--环状图-->
+              <div id="main1" style="height:100px;width:100px" v-show="showMain1"></div>
+              <div class="main-value" v-show="showMain1">
+                <span>{{Math.round((result1.rate/result1.allMoney)*100) || 0}}%</span><br/>
+                <span>{{Math.round((result1.total/result1.allMoney)*100) || 0}}%</span>
+              </div>
+              <!--环状图-->
+              <div class="desc1" v-show="showMain1">
+                <p><span>贷款总额</span></p>
+                <p><span>还贷月数</span></p>
+                <p><span>月还款</span></p>
+                <p><span>支付利息</span></p>
+                <p><span>本息总和</span></p>
+              </div>
+              <div class="desc2" v-show="showMain1">
+                <p><span>{{result1.total || 0}}万元</span></p>
+                <p><span>{{result1.mounth || 0}}月</span></p>
+                <p><span>{{result1.mounthMoney || 0}}万元</span></p>
+                <p><span>{{result1.rate || 0}}万元</span></p>
+                <p><span>{{result1.allMoney || 0}}万元</span></p>
+              </div>
+              <div class="main-bottom">
+                <div class="main-icon2"></div><span>贷款本金</span>
+                <div class="main-icon1"></div><span>贷款利息</span>
+              </div>
+            </div>
+            <mt-cell title="还款方式">
+              <mt-radio style="float: left" v-model="form1.repayment" :options="['等额本息', '等额本金']"></mt-radio>
+            </mt-cell>
+            <mt-cell title="贷款金额">
+              <input type="number" v-model="form1.total">万元
+            </mt-cell>
+            <mt-cell title="贷款年限">
+              <select v-model="form1.year" >
+                <option v-for="item in 30" :value="item">{{item}}({{item * 12}}期)</option>
+              </select>
+            </mt-cell>
+            <mt-cell title="年利率">
+              <select v-model="form1.yearRate">
+                <option :value="3.25">最新基准利率(3.25%)</option>
+                <option :value="3.575">基准利率1.1倍(3.575%)</option>
+                <option :value="3.9">基准利率1.2倍(3.90%)</option>
+                <option :value="4.225">基准利率1.3倍(4.225%)</option>
+              </select>
+            </mt-cell>
+            <mt-cell title="公积金利率">
+              <input type="number" v-model="form1.yearRate" />
+            </mt-cell>
+            <mt-button type="primary" @click="submit1()" style="width: 90%;margin-left: 5%;border-radius: 41px;background:#f08300;">开始计算</mt-button>
+          </mt-tab-container-item>
+          <!--第二页-->
+          <mt-tab-container-item id="商业贷款">
+            <div class="gjj-title1" ref="page2" style="height:40px">
+              <!--环状图-->
+              <div id="main2" style="height:100px;width:100px" v-show="showMain2"></div>
+                <div class="main-value" v-show="showMain2">
+                <span>{{Math.round((result2.rate/result2.allMoney)*100) || 0}}%</span><br/>
+                <span>{{Math.round((result2.total/result2.allMoney)*100) || 0}}%</span>
+              </div>
+              <!--环状图-->
+              <div class="desc1" v-show="showMain2">
+                <p><span>贷款总额</span></p>
+                <p><span>还贷月数</span></p>
+                <p><span>月还款</span></p>
+                <p><span>支付利息</span></p>
+                <p><span>本息总和</span></p>
+              </div>
+              <div class="desc2" v-show="showMain2">
+                 <p><span>{{result2.total || 0}}万元</span></p>
+                <p><span>{{result2.mounth || 0}}月</span></p>
+                <p><span>{{result2.mounthMoney || 0}}万元</span></p>
+                <p><span>{{result2.rate || 0}}万元</span></p>
+                <p><span>{{result2.allMoney || 0}}万元</span></p>
+              </div>
+              <div class="main-bottom">
+                <div class="main-icon2"></div><span>贷款本金</span>
+                <div class="main-icon1"></div><span>贷款利息</span>
+              </div>
+            </div>
+            <mt-cell title="还款方式">
+              <mt-radio style="float: left" v-model="form2.repayment" :options="['等额本息', '等额本金']"></mt-radio>
+            </mt-cell>
+            <mt-cell title="贷款金额">
+              <input type="number" v-model="form2.total">万元
+            </mt-cell>
+            <mt-cell title="贷款年限">
+              <select v-model="form2.year">
+               <option v-for="item in 30" :value="item">{{item}}({{item * 12}}期)</option>
+              </select>
+            </mt-cell>
+            <mt-cell title="年利率">
+              <select v-model="form2.yearRate">
+                 <option :value="3.43">最新基准利率7折(3.43%)</option>
+                <option :value="3.675">基准利率7.5折(3.675%)</option>
+                <option :value="3.92">基准利率8折(3.92%)</option>
+                <option :value="4.165">基准利率8.5折(4.165%)</option>
+                <option :value="4.41">基准利率9折(4.41%)</option>
+                <option :value="4.655">基准利率9.5折(4.655%)</option>
+                <option :value="4.9">最新基准利率(4.90%)</option>
+                <option :value="5.39">基准利率1.1倍(5.39%)</option>
+                <option :value="5.88">基准利率1.2倍(5.88%)</option>
+                <option :value="6.37">基准利率1.3倍(6.37%)</option>
+              </select>
+            </mt-cell>
+            <mt-cell title="商业年利率">
+              <input type="number" v-model="form2.yearRate">
+            </mt-cell>
+            <mt-button type="primary" style="width: 90%;margin-left: 5%;border-radius: 41px;background:#f08300;" @click="submit2()">开始计算</mt-button>
+          </mt-tab-container-item>
+          <!--第三页-->
+          <mt-tab-container-item id="组合贷款">
+            <div class="gjj-title1"  ref="page3" style="height:40px">
+              <!--环状图-->
+                         <div id="main3" style="height:100px;width:100px" v-show="showMain3"></div>
+                 <div class="main-value" v-show="showMain3">
+                <span>{{Math.round((result3.rateAll/result3.allMoneyAll)*100) || 0}}%</span><br/>
+                <span>{{Math.round((result3.totalAll/result3.allMoneyAll)*100) || 0}}%</span>
+              </div> 
+              <!--环状图-->
+              <div class="desc1" v-show="showMain3">
+                <p><span>贷款总额</span></p>
+                <p><span>还贷月数</span></p>
+                <p><span>月还款</span></p>
+                <p><span>支付利息</span></p>
+                <p><span>本息总和</span></p>
+              </div>
+              <div class="desc2" v-show="showMain3">
+                <p><span>{{result3.totalAll}}万元</span></p>
+                <p><span>{{result3.mounth}}月</span></p>
+                <p><span>{{result3.mounthMoneyAll}}万元</span></p>
+                <p><span>{{result3.rateAll}}万元</span></p>
+                <p><span>{{result3.allMoneyAll}}万元</span></p>
+              </div>
+              <div class="main-bottom">
+                <div class="main-icon2"></div><span>贷款本金</span>
+                <div class="main-icon1"></div><span>贷款利息</span>
+              </div>
+            </div>
+            <mt-cell title="还款方式">
+              <mt-radio style="float: left" v-model="form3.repayment" :options="['等额本息', '等额本金']"></mt-radio>
+            </mt-cell>
+            <mt-cell title="公积金贷款金额">
+              <input type="number" v-model="form3.totalGjj">万元
+            </mt-cell>
+            <mt-cell title="商业贷款金额">
+              <input type="number" v-model="form3.totalSy">万元
+            </mt-cell>
+            <mt-cell title="贷款年限">
+              <select v-model="form3.year">
+               <option v-for="item in 30" :value="item">{{item}}({{item * 12}}期)</option>
+              </select>
+            </mt-cell>
+            <mt-cell title="商业年利率">
+              <select v-model="form3.yearRateSy">
+               <option :value="3.43">最新基准利率7折(3.43%)</option>
+                <option :value="3.675">基准利率7.5折(3.675%)</option>
+                <option :value="3.92">基准利率8折(3.92%)</option>
+                <option :value="4.165">基准利率8.5折(4.165%)</option>
+                <option :value="4.41">基准利率9折(4.41%)</option>
+                <option :value="4.655">基准利率9.5折(4.655%)</option>
+                <option :value="4.9">最新基准利率(4.90%)</option>
+                <option :value="5.39">基准利率1.1倍(5.39%)</option>
+                <option :value="5.88">基准利率1.2倍(5.88%)</option>
+                <option :value="6.37">基准利率1.3倍(6.37%)</option>
+              </select>
+            </mt-cell>
+            <mt-cell title="公积金年利率">
+              <select v-model="form3.yearRateGjj">
+                <option :value="3.25">最新基准利率(3.25%)</option>
+                <option :value="3.575">基准利率1.1倍(3.575%)</option>
+                <option :value="3.9">基准利率1.2倍(3.90%)</option>
+                <option :value="4.225">基准利率1.3倍(4.225%)</option>
+              </select>
+            </mt-cell>
+            <mt-cell title="公积金年利率">
+              <input type="number" v-model="form3.yearRateGjj">
+            </mt-cell>
+            <mt-cell title="商业年利率">
+              <input type="number" v-model="form3.yearRateSy">
+            </mt-cell>
+            <mt-button ref="xxx" @click="submit3()" type="primary" style="background:#f08300;width: 90%;margin-left: 5%;border-radius: 41px;">开始计算</mt-button>
+          </mt-tab-container-item>
+        </mt-tab-container>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- built files will be auto injected -->
+</body>
+<!-- 引入组件库 -->
+<script src="js/vue.js"></script>
+<script src="js/mintUi.js"></script>
+<script src="js/require.js"></script>
+<script>
+	require.config({
+	    paths : {
+	        "echarts" : ["./js/echarts"]
+	    }
+	})
+  var app = new Vue({
+    el: '#app',
+    data() {
+      return {
+        num1: '6666',
+        selected: '公积金贷款',
+        showMain1: false,
+        showMain2: false,
+        showMain3: false,
+        form1: {
+          repayment: '等额本息', // 还款方式
+          total: '', // 贷款金额
+          year: '20', // 贷款年限
+          yearRate: '3.25', // 年利率
+        },
+        result1: {
+          total: '', // 贷款总额
+          mounth: '', //还款月数
+          mounthMoney: '', // 月还款
+          rate: '', // 还款利息
+          allMoney: '' // 本息总额
+        },
+         form2: {
+          repayment: '等额本息', // 还款方式
+          total: '', // 贷款金额
+          year: '20', // 贷款年限
+          yearRate: '4.9', // 年利率
+        },
+        result2: {
+          total: '', // 贷款总额
+          mounth: '', //还款月数
+          mounthMoney: '', // 月还款
+          rate: '', // 还款利息
+          allMoney: '' // 本息总额
+        },
+        form3: {
+          repayment: '等额本息', // 还款方式
+          totalGjj: '', // 公基金贷款金额
+          totalSy: '', // 商业贷款
+          year: '20', // 贷款年限
+          yearRateGjj: '3.25', // 公基金年利率
+          yearRateSy: '4.9', // 商业年利率
+        },
+        result3: {
+          totalAll: '', // 贷款总额
+          mounth: '', //还款月数
+          mounthMoneyAll: '', // 月还款
+          rateAll: '', // 还款利息
+          allMoneyAll: '' // 本息总额
+        },
+      }
+    },
+    methods: {
+      initEchar(chartDom,newData) {
+				require(["echarts"],function(echarts){
+				  //  setTimeout(() => {
+          //    this.$indicator.close();
+          //  },0)
+	        var option = {
+	          series: [{
+	            name: '贷款金额',
+	            type: 'pie',
+	            radius: ['50%', '70%'],
+	            avoidLabelOverlap: false,
+	            hoverAnimation: false, //关闭 hover 在扇区上的放大动画效果。
+	            cursor: 'default', //鼠标悬浮时在图形元素上时鼠标的样式是什么。同 CSS 的 cursor。
+	            silent: true, //图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
+	            label: {
+	              normal: {
+	                show: false,
+	                position: 'default'
+	              },
+	              emphasis: {
+	                show: false
+	              }
+	            },
+	            labelLine: {
+	              normal: {
+	                show: false
+	              }
+	            },
+	            data: [{
+	                value: 0,
+	                name: '贷款金额'
+	              },
+	              {
+	                value: 0,
+	                name: '贷款利息'
+	              }
+	            ]
+	          }]
+	        };
+	        
+	        let mainDom = chartDom
+	        
+	        
+	        var myChart = echarts.init(document.getElementById(mainDom));
+	        myChart.setOption(option);
+	        // 显示 tooltip
+	        myChart.dispatchAction({
+	          type: 'showTip',
+	          seriesIndex: 0,
+	          dataIndex: 0
+	        })
+          
+	        if (newData) {
+	           
+	           console.log(newData[0])
+	          option.series[0].data = [{
+	              value: newData[0],
+	              name: '贷款金额'
+	            },
+	            {
+	              value: newData[1],
+	              name: '贷款利息'
+	            }
+	          ]
+	          myChart.clear()
+	          myChart.setOption(option)
+        }
+        
+        })
+      },
+      // 第一页执行计算
+      submit1() {
+        // 进行数据转换
+        if (!this.form1.total) {
+          this.$toast('请输入贷款金额')
+          return 
+          }
+        // this.$indicator.open('计算中');
+        (this.form1.total) ? this.form1.total = Number(this.form1.total): this.form1.total = 0;
+        (this.form1.year) ? this.form1.year = Number(this.form1.year) : this.form1.year = 0;
+        (this.form1.yearRate) ? this.form1.yearRate = Number(this.form1.yearRate) : this.form1.yearRate = 0;
+        let yearRate = this.form1.yearRate / 100
+        if (this.form1.repayment === '等额本金') {
+          this.result1.total = (this.form1.total).toFixed(2);
+          this.result1.mounth = (this.form1.year * 12);
+          this.result1.mounthMoney = (this.form1.total / (this.form1.year * 12) + (this.form1.total) * (this.form1.yearRate / 12)).toFixed(2);
+          this.result1.rate = (Number(this.result1.mounthMoney) * (this.form1.year * 12) - this.form1.total).toFixed(2);
+          this.result1.allMoney = (Number(this.result1.mounthMoney) * this.form1.year * 12).toFixed(2);
+        } else {
+          // 等额本息
+          this.result1.total = (this.form1.total).toFixed(2);
+          this.result1.mounth = (this.form1.year * 12);
+          this.result1.mounthMoney = ((this.form1.total * (this.form1.yearRate / 12 ) * Math.pow((1 + this.form1.yearRate / 12), (this.form1.year * 12)) / (Math.pow((1 + this.form1.yearRate / 12), (this.form1.year * 12)) -1))).toFixed(2);
+          this.result1.rate = (Number(this.result1.mounthMoney) * this.form1.year * 12 - this.form1.total).toFixed(2);
+          this.result1.allMoney = (Number(this.result1.mounthMoney) * this.form1.year * 12).toFixed(2);
+        }
+        this.$refs.page1.style.height = '160px'
+        this.showMain1 = true
+        this.initEchar('main1',[Number(this.result1.total), Number(this.result1.rate)])
+        },
+        // 第二页执行计算
+        submit2() {
+        // 进行数据转换
+                if (!this.form2.total) {
+          this.$toast('请输入贷款金额')
+          return 
+          }
+        //  this.$indicator.open('计算中');
+        (this.form2.total) ? this.form2.total = Number(this.form2.total): this.form2.total = 0;
+        (this.form2.year) ? this.form2.year = Number(this.form2.year) : this.form2.year = 0;
+        (this.form2.yearRate) ? this.form2.yearRate = Number(this.form2.yearRate) /100 : this.form2.yearRate = 0;
+        if (this.form2.repayment === '等额本金') {
+          this.result2.total = (this.form2.total).toFixed(2);
+          this.result2.mounth = (this.form2.year * 12);
+          this.result2.mounthMoney = (this.form2.total / (this.form2.year * 12) + (this.form2.total) * (this.form2.yearRate / 12)).toFixed(2);
+          this.result2.rate = (Number(this.result2.mounthMoney) * (this.form2.year * 12) - this.form2.total).toFixed(2);
+          this.result2.allMoney = (Number(this.result2.mounthMoney) * this.form2.year * 12).toFixed(2);
+        } else {
+          // 等额本息
+          this.result2.total = (this.form2.total).toFixed(2);
+          this.result2.mounth = (this.form2.year * 12);
+          this.result2.mounthMoney = ((this.form2.total * (this.form2.yearRate / 12 ) * Math.pow((1 + this.form2.yearRate / 12), (this.form2.year * 12)) / (Math.pow((1 + this.form2.yearRate / 12), (this.form2.year * 12)) -1))).toFixed(2);
+          this.result2.rate = (Number(this.result2.mounthMoney) * this.form2.year * 12 - this.form2.total).toFixed(2);
+          this.result2.allMoney = (Number(this.result2.mounthMoney) * this.form2.year * 12).toFixed(2);
+        }
+        this.$refs.page2.style.height = '160px'
+        this.showMain2 = true
+        this.initEchar('main2',[Number(this.result2.total), Number(this.result2.rate)])
+        },
+        submit3() {
+           // 进行数据转换
+         if (!this.form3.totalGjj) {
+          this.$toast('请输入公积金贷款金额')
+          return 
+          }  
+                   if (!this.form3.totalSy) {
+          this.$toast('请输入商业贷款金额')
+          return 
+          }  
+        //  this.$indicator.open('计算中');
+        (this.form3.totalGjj) ? this.form3.totalGjj = Number(this.form3.totalGjj): this.form3.totalGjj = 0;
+        (this.form3.totalSy) ? this.form3.totalSy = Number(this.form3.totalSy): this.form3.totalSy = 0;
+        (this.form3.year) ? this.form3.year = Number(this.form3.year) : this.form3.year = 0;
+        (this.form3.yearRateGjj) ? this.form3.yearRateGjj = Number(this.form3.yearRateGjj) / 100 : this.form3.yearRateGjj = 0;
+        (this.form3.yearRateSy) ? this.form3.yearRateSy = Number(this.form3.yearRateSy) / 100 : this.form3.yearRateSy = 0;
+        if (this.form3.repayment === '等额本金') {
+          this.result3.totalAll = (this.form3.totalGjj + this.form3.totalSy).toFixed(2)
+          this.result3.mounth = (this.form3.year * 12);
+          let mounthMoeyGjj = this.form3.totalGjj / (this.form3.year * 12) + (this.form3.totalGjj) * (this.form3.yearRateGjj / 12)
+          let mounthMoeySy = this.form3.totalSy / (this.form3.year * 12) + (this.form3.totalSy) * (this.form3.yearRateSy / 12)
+          this.result3.mounthMoneyAll = (mounthMoeyGjj + mounthMoeySy).toFixed(2)
+          this.result3.rateAll = (Number(this.result3.mounthMoneyAll) * (this.form3.year * 12) - Number(this.result3.totalAll)).toFixed(2);
+          this.result3.allMoneyAll = (Number(this.result3.mounthMoneyAll) * (this.form3.year * 12)).toFixed(2);
+        } else {
+          this.result3.totalAll = (this.form3.totalGjj + this.form3.totalSy).toFixed(2)
+          this.result3.mounth = (this.form3.year * 12);
+          let mounthMoeyGjj = ((Number(this.form3.totalGjj) * (this.form3.yearRateGjj / 12 ) * Math.pow((1 + this.form3.yearRateGjj / 12), (this.form3.year * 12)) / (Math.pow((1 + this.form3.yearRateGjj / 12), (this.form3.year * 12))- 1)));
+          let mounthMoeySy = ((Number(this.form3.totalSy) * (this.form3.yearRateSy / 12 ) * Math.pow((1 + this.form3.yearRateSy / 12), (this.form3.year * 12)) / (Math.pow((1 + this.form3.yearRateSy / 12), (this.form3.year * 12)) - 1)));
+          console.log('666',mounthMoeyGjj)
+          console.log('777', mounthMoeySy)
+          this.result3.mounthMoneyAll = (mounthMoeyGjj + mounthMoeySy).toFixed(2)
+          this.result3.rateAll = (Number(this.result3.mounthMoneyAll) * (this.form3.year * 12) - Number(this.result3.totalAll)).toFixed(2);
+          this.result3.allMoneyAll = (Number(this.result3.mounthMoneyAll) * (this.form3.year * 12)).toFixed(2);
+        }
+        this.$refs.page3.style.height = '160px'
+        this.showMain3 = true
+        this.initEchar('main3',[Number(this.result3.totalAll), Number(this.result3.rateAll)])
+        }
+        // 第三页进行计算
+    },
+    mounted() {
+      // this.showMain1 = true
+      //   this.initEchar('main1')
+      //   this.initEchar('main2')
+      // this.initEchar('main3')
+      
+      //显示容器
+      document.getElementById("showApp").style.display="block";
+    }
+  })
+  
+  
+  
+</script>
+
+</html>

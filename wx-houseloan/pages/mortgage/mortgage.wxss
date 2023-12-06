@@ -1,0 +1,182 @@
+.mortgage {
+    font-size: 25rpx;
+}
+.mortgage .top {
+    margin-bottom: 18rpx;
+}
+.mortgage .top, .mortgage .holp, .mortgage .footer-box {
+    padding: 0 90rpx;
+    background-color: #fff;
+    position: relative;   
+}
+.mortgage .top .nav {
+    padding: 60rpx 0 30rpx;
+    display: flex;
+    justify-content: center;
+}
+.mortgage .top .nav .nav-item {
+    flex: 1;
+    text-align: center;
+    border: 2rpx solid #e4e4ef;
+    background: #f9f9f9;
+    box-sizing: border-box;
+    height: 68rpx;
+    line-height: 68rpx;
+}
+.mortgage .top .nav .nav-item.two {
+    flex: 0 1 190rpx;
+}
+.mortgage .top .nav .nav-item.active {
+    color: #fa785c;
+    height: 72rpx;
+    line-height: 72rpx;
+    background: #fff;
+    transform: translateY(-2rpx);
+}
+/* nav导航条结束 */
+.mortgage .top .list .list-item {
+    display: flex;
+    height: 95rpx;
+    border-bottom: 1px solid #e4e4ef;
+    line-height: 95rpx;
+}
+/* input为空的样式 */
+.mortgage .top .list .list-item.active {
+    color: red!important;
+}
+.mortgage .top .list .list-item .item-right {
+    float: right;
+    flex: 1;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    position: relative;
+}
+/* 贷款总额input样式  单价 面积*/
+.mortgage .top .list .list-item .item-right .total-loans {
+    background: #f3f3f3;
+    padding-left: 10rpx;
+    position: absolute;
+    right: 0;
+    border-radius: 10rpx;
+    color:#676767;
+}
+.mortgage .top .list .list-item .item-right text {
+    z-index: 100;
+}
+/* 最新基准利率 */
+.mortgage .top .list .list-item .item-right .new-rate {
+    color: #8f90a0;
+    border-right: 2rpx solid #8f90a0;
+    padding-right: 10rpx;
+}
+/* 利率数字 */
+.mortgage .top .list .list-item .item-right .rate-num {
+    display: inline-block;
+    width: 60rpx;
+    padding: 0 10rpx 0 40rpx;
+}
+.mortgage .top .list .list-item .fs view:first-child {
+   margin-right: 60rpx; 
+}
+/* 还款方式小圆点 */
+.mortgage .top .list .list-item .fs .dot {
+    display: inline-block;
+    height: 20rpx;
+    width: 20rpx;
+    border: 1px solid #e4e4ef;
+    border-radius: 50%;
+    margin-right: 12rpx;
+}
+.mortgage .top .list .list-item .fs .dot.active {
+    background: #fa785c;
+}
+
+.btn-box {
+    padding: 50rpx;
+}
+.btn-box .text {
+    font-size: 22rpx;
+    display: block;
+    text-align: center;
+    margin-bottom: 20rpx;
+    color: #acacb8;
+}
+.btn-box .submit,.btn-box .reset {
+    height: 90rpx;
+    border-radius: 45rpx;
+    line-height: 90rpx;
+    font-size: 30rpx;
+}
+.btn-box .submit {
+    color: #fff;
+    background: #fa785c;
+    margin-bottom: 30rpx;
+}
+.btn-box .reset {
+    color: #fa785c;
+    border: 1px solid #fa785c;
+    background: #fff;
+}
+
+/* 帮助 */
+.mortgage .holp {
+    height: 90rpx;
+    line-height: 90rpx;
+    margin-bottom: 136rpx;
+}
+
+.mortgage .footer-box {
+    /* border-top: 1px solid #acacb8; */
+    height: 96rpx;
+    line-height: 96rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.mortgage .footer-box view {
+    float: left;
+    width: calc(50% - 2rpx);
+    box-sizing: border-box;
+}
+.mortgage .footer-box view.fd {
+    padding-left: 36rpx;
+}
+.mortgage .footer-box .line {
+    display: block;
+    float: left;
+    width: 4rpx;
+    height: 40rpx;
+    background: #acacb8;
+    margin: 28rpx 0;
+}
+.mortgage .footer-box view.taxes {
+    padding-left: 125rpx;
+}
+.mortgage .footer-box view.active {
+    color: #fa785c;
+}
+
+
+.lower_corner {
+    width: 25rpx;
+    height: 25rpx;
+    margin-left: 15rpx;
+}
+
+.holp_icon {
+    width: 32rpx;
+    height: 32rpx;
+    display: inline-block;
+    transform: translateY(7rpx);
+    margin-right: 18rpx;
+}
+.r_corner {
+    width: 25rpx;
+    height: 25rpx;
+    position: absolute;
+    top: 50%;
+    right: 90rpx;
+    margin-top: -12.5rpx;
+}

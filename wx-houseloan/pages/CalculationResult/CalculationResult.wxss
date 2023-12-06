@@ -1,0 +1,113 @@
+view {
+    line-height: 1;
+}
+.js-result {
+    padding: 24rpx;
+}
+.js-result .main {
+    padding: 32rpx 16rpx;
+    background: #fff;
+    border-radius: 18rpx;
+}
+.js-result .main .top {
+    padding: 0 25rpx 28rpx 25rpx;
+    border-bottom: 1px dashed #a5a9b8;
+    position: relative;
+}
+.left-dots, .right-dots {
+    width: 28rpx;
+    height: 28rpx;
+    background: #f5f4f9;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 100;
+}
+.left-dots {
+    bottom: -14rpx;
+    left: -28rpx;
+}
+.right-dots {
+    bottom: -14rpx;
+    right: -28rpx;
+}
+.js-result .main .top .title {
+    display: flex;
+    justify-content: space-between;
+}
+.js-result .main .top .top-main {
+    display: flex;
+}
+.js-result .main .top .top-main .top-num {
+    color: #f97154;
+    font-weight: bold;
+    font-size: 45rpx;
+    padding-top: 15rpx;
+    padding-right: 12rpx;
+}
+.js-result .main .top .top-main .top-Month {
+    display: flex;
+    align-self: flex-end;
+    border-left: 1px solid #989dae;
+    padding-left: 18rpx;
+}
+.js-result .main .top .top-main .top-Month .r-month {
+    color: #f97154;
+    padding: 0 10rpx;
+}
+.js-result .main .content {
+    padding-top: 30rpx;
+    border-bottom: 1px dashed #a5a9b8;
+}
+.js-result .main .content view {
+    width: 33.3%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    /* align-content: center; */
+    text-align: center;
+}
+.js-result .main .content view .h1 {
+    flex: 1;
+    width: 100%;
+    color: #a5a9b8;
+}
+.js-result .main .content view .num {
+    width: 100%;
+    font-size: 28rpx;
+    font-weight: bold;
+    text-align: center;
+    padding: 10rpx 0 30rpx 0;
+}
+.js-result .main .footer {
+    padding: 32rpx 35rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+.js-result .main .footer .every-month-title {
+    float: left;
+    color:#cbced6; 
+}
+.js-result .main .footer .every-monthmoney {
+    float: right;
+}
+
+.js-result .Remarks {
+    padding-top: 30rpx;
+    font-size:  22rpx;
+    color: #cdcfd9;
+}
+.js-result .fx {
+    transform: translateX(40rpx);
+}
+
+.gotoInfo {
+    margin-top: 18rpx;
+    display: flex;
+    justify-content: space-between;
+    padding: 30rpx 40rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    background: #fff;
+    align-items: center;
+    border-radius: 18rpx;
+}

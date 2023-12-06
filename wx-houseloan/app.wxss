@@ -1,0 +1,59 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clearFix::after {
+    display:block;
+    clear:both;
+    content:"";
+    visibility:hidden;
+    height:0
+}
+page {
+    background-color: #f1f0f4;
+    font-size: 25rpx;
+     font-family: "Microsoft YaHei","SimSun";
+}
+
+.f-orange {
+    color: #fb9c8b;
+}
+
+.r_corner {
+    width: 25rpx;
+    height: 25rpx;
+}
+
+/* 分享 */
+.fx {
+    width: 125rpx;
+    height: 58rpx;
+    background-color: #f97154;
+    text-align: center;
+    line-height: 58rpx;
+    color: #fff; 
+    border-top-left-radius: 58rpx;
+    border-bottom-left-radius: 58rpx;
+}
+.fxImg {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+
+/* view {
+    line-height: 1;
+} */

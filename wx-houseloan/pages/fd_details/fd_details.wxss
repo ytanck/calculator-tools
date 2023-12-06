@@ -1,0 +1,101 @@
+/* view {
+    line-height: 1;
+} */
+.fd-details {
+    background: #fff;
+}
+.fd-details .top {
+    vertical-align: middle;
+    padding: 36rpx 0 36rpx 30rpx;
+    border-bottom: 2rpx solid #f5f4f9;
+}
+
+.fd-details .top .fd-details-img-box .fd-details-img {
+    width: 178rpx;
+    height: 28rpx;
+    position: relative;
+    top: 20rpx;
+}
+
+.fd-details .list .li-item {
+    padding-top: 26rpx;
+    position: relative;
+}
+.fd-details .list .li-item .li-title {
+    padding-left: 50rpx;
+    color: #fa785c;
+}
+.fd-details .list .li-item .li-main {
+    padding: 16rpx 0 0 0;
+    display: flex;
+}
+.fd-details .list .li-item .li-main .li-main-left , .fd-details .list .li-item .li-main .li-main-right {
+    flex: 1;
+}
+.fd-details .list .li-item .li-main .li-main-right {
+    border-left: 2rpx solid #f5f4f9;
+    padding-left: 38rpx;
+}
+.fd-details .list .li-item .li-main .li-main-left {
+    padding-left: 50rpx;
+}  
+.li-main-bottom-text {
+    color: #989dae;
+    font-size: 22rpx;
+}
+.money {
+    font-weight: bold;
+}
+.yuan {
+    color: #989dae;
+    font-size: 18rpx;
+    margin-left: 5rpx;
+}
+.li-main-bottom-text {
+    margin-top: 10rpx;
+}
+
+.modal-icon {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 77rpx;
+    right: 30rpx;
+}
+
+.li-bottom-line {
+    margin: 29rpx 40rpx 0 40rpx;
+    border-top: 2rpx dashed #f5f4f9;
+}
+.table-list {
+    width: 100%;
+    background: #f5f4f9;
+    transition: all 1.5s;
+}
+
+.table-list .th, .table-list .tr {
+    display: flex;
+    border-bottom: 2rpx solid #d0d1db;
+}
+.table-list .th {
+    padding: 25rpx 0;
+}
+.table-list .tr {
+    padding: 30rpx 0;
+}
+.table-list .tr.active {
+    color: #fa785c;
+}
+.table-list .th .td, .table-list .tr .td {
+    text-align: center;
+    box-sizing: border-box;
+    border-right: 2rpx solid #d0d1db;
+    width: 140rpx;
+}
+.table-list .th .td:first-child, .table-list .tr .td:first-child {
+     width: 111rpx;
+}
+.table-list .th .td:last-child, .table-list .tr  .td:last-child {
+    width: 220rpx;
+    border: none;
+}

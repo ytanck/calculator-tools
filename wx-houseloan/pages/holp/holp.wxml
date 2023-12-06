@@ -1,0 +1,197 @@
+<view class="holp">
+    <view class='nav'>
+        <view bindtap='changeMain' data-index="0" class="nav-item {{isshow == 0?'active':''}}">
+            贷款计算说明
+        </view>
+        <view bindtap='changeMain' data-index="1" class="nav-item {{isshow == 1?'active':''}}">
+            各种税费详细说明
+        </view>
+    </view>
+    <!-- nav导航结束 -->
+    <view wx:if="{{isshow == 0}}" class='loan'>
+        <view class='card one-card'>
+            <view class='h1'>等额本息还款法</view>
+            <view class='text'>
+                等额本息还款法, 即借款人每月按相等的金额偿还贷款本息, 其中每月贷款利息按月初剩余贷款本金计算并逐月结清。由于每月还款额相等, 因此, 在贷款初期每月还款中, 剔除按月结清的利息后, 所还的贷款本金就比较少; 而在贷款后期因贷款本金不断减少、 每月的还款额中贷款利息也不断减少, 每月所还的贷款本金就较多。 这种还款方式, 实际占用银行贷款的数量更多、 占用的时间更长, 同时它还便于借款人合理安排每月生活和进行理财(如以租养房等), 对于精通投资、 擅长于“以钱生钱”的人来说, 无疑是最好的选择。
+            </view>
+            <!-- 计算公式 -->
+            <view class='formula'>
+                <view class='formula-title'>
+                    <image style='width: 20rpx; height: 20rpx; background: red;'></image>
+                    <text>计算公式</text>
+                </view>
+                 <view class='formula-text'>
+                        每月月供额=[贷款本金x月利率x(1 + 月利率)^还款月数] + [(1 + 月利率)^还款月数 - 1]
+                    </view>
+            </view>
+        </view>
+
+         <view class='card two-card'>
+            <view class='h1'>等额本金还款法</view>
+            <view class='text'>
+                所谓等额本金还款, 贷款人将本金分摊到每个月内, 同时付清上一交易日至本次还款日之间的利息。 这种还款方式相对等额本息而言, 总的利息支出较低, 但是前期支付的本金和；利息较多, 还款负担逐月递减。 等额本金还款法是一种计算非常简便, 实用性很强的一种还款方式。 基本算法原理是在还款期内按期等额归还贷款本金, 并同时还清当期未归还的本金所产生的利息。 方式可以是按月还款和按季还款。
+            </view>
+            <!-- 计算公式 -->
+            <view class='formula'>
+                <view class='formula-title'>
+                    <image style='width: 20rpx; height: 20rpx; background: red;'></image>
+                    <text>计算公式</text>
+                </view>
+                 <view class='formula-text'>
+                        每月还款额=贷款本金+还款月数+(贷款本金 - 已归还本金累计额) x 月利率
+                    </view>
+            </view>
+        </view>
+
+        <view class='card table-card'>
+            <view class='h1'>人民币存贷基准率调整表</view>
+            <view class='table'>
+                <view class='th'>
+                    <view class='td f-orange'>个人商业贷款</view>
+                    <view class='td f-orange'>调整后利率</view>
+                </view>
+                 <view class='tr'>
+                    <view class='td'>一年以内(含一年)</view>
+                    <view class='td td-bg'>4.35</view>
+                </view>
+                 <view class='tr'>
+                    <view class='td'>一至五年(含五年)</view>
+                    <view class='td td-bg'>4.75</view>
+                </view>
+                 <view class='tr'>
+                    <view class='td'>五年以上</view>
+                    <view class='td td-bg'>4.9</view>
+                </view>
+            </view>
+            <view class='table p-t-30'>
+                <view class='th'>
+                    <view class='td f-orange'>个人住房公积金贷款</view>
+                    <view class='td f-orange'>调整后利率</view>
+                </view>
+                 <view class='tr'>
+                    <view class='td'>五年以下(含五年)</view>
+                    <view class='td td-bg'>4.35</view>
+                </view>
+                 <view class='tr'>
+                    <view class='td'>五年以上</view>
+                    <view class='td td-bg'>4.9</view>
+                </view>
+            </view>
+            <!-- 计算公式 -->
+            <view class='formula'>
+                 <view class='remarks'>
+                    备注： 以上表格于2016-10-24更新
+                </view>
+            </view> 
+        </view>
+    </view>
+    <!-- 贷款计算说明结束 -->
+    <view wx:if="{{isshow == 1}}" class='taxes'>
+        <view class='card'> 
+            <view class='h1'>契税</view>
+            <view class='text-title'>新房</view>
+            <view class='text'>
+                <view>
+                    <text>1、购买90平方以下(含90平)的房产按1%缴纳</text>
+                </view>
+                <view>
+                    <text>2、购买90平方以上144平方以下(含144平)的房产按</text>
+                </view>
+                <view>
+                    <text>1.5 %缴纳</text>
+                </view>
+                <view>
+                    <text>3、购买144平方以上的房产按3%缴纳</text>
+                </view>
+            </view>
+            <view class='text-title'>二手房买方缴纳</view>
+            <view class='text'>
+                 <view>
+                    <text space="nbsp">1、购买90平方以下(含90平)的房产,  首套房按照1%缴纳,  非首套房按照1.5%缴纳</text>
+                </view>
+                    <view>
+                    <text space="nbsp">2、购买90平方以上的房产,  首套房按照1.5%缴纳,  非首套房按照3%缴纳</text>
+                </view>
+            </view>
+        </view>
+        <!-- 契税结束 -->
+        <view class='card'>
+            <view class='h1'>营业税</view>
+            <view class='text-title'>二手房卖方缴纳</view>
+            <view class='text'>
+                <view>
+                    <text>1、房产证满2年,免征营业税</text>
+                </view>
+                <view>
+                    <text>2、房产证不满2年,按照5%缴纳营业税</text>
+                </view>
+            </view>
+        </view>
+        <!-- 营业税结束 -->
+        <view class='card'>
+            <view class='h1'>增值税</view>
+            <view class='text-title'>二手房买方缴纳</view>
+            <view class='text'>
+               <view>
+                    <text>1、房产证满2年,免征增值税</text>
+                </view>
+                <view>
+                    <text>2、房产证不满2年,按照5%缴纳增值税</text>
+                </view>
+            </view>
+        </view>
+        <!-- 增值税结束 -->
+        <view class='card'>
+            <view class='h1'>个人所得税</view>
+            <view class='text-title'>二手房卖方缴纳</view>
+            <view class='text'>
+                <view>
+                    <text>1、满五唯一免征个人所得税</text>
+                </view>
+                <view>
+                    <text>2、不是唯一房产或房产证未满五年, 按照差额的20%缴纳, 计算公式为( 现在出售价格 - 上次购买价格 ) * 税率：20% </text>
+                </view>
+            </view>
+        </view>
+        <!-- 个人所得税结束 -->
+        <view class='card'>
+            <view class='h1'>交易手续费</view>
+            <view class='text'>
+                <view>
+                    <text>1、新房面积x3</text>
+                </view>
+                <view>
+                    <text>2、二手房面积x2 + 20工本费</text>
+                </view>
+            </view>
+        </view>
+        <!-- 交易手续费结束 -->
+        <view class='card'>
+            <view class='h1'>维修基金</view>
+            <view class='text'>
+                <view>
+                    <text>新房3%</text>
+                </view>
+            </view>
+        </view>
+        <!-- 维修基金结束 -->
+        <view class='card'>
+            <view class='h1'>权属登记费</view>
+            <view class='text'>
+                <view>
+                    <text>新房80元</text>
+                </view>
+            </view>
+        </view>
+
+        <view class='card'>
+            <view class='h1'>印花税</view>
+            <view class='text'>
+                <view>
+                    <text>新房0.05%</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 各种税费详细说明结束 -->
+</view>

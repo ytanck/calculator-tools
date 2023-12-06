@@ -1,0 +1,20 @@
+{
+    "pages":[
+        "pages/mortgage/mortgage",
+        "pages/index/index",
+        "pages/result/result",
+        
+        "pages/fd_details/fd_details",
+        "pages/search/search",
+        "pages/home/home",
+        "pages/holp/holp",
+        "pages/CalculationResult/CalculationResult",
+        "pages/logs/logs"
+    ],
+    "window":{
+      "backgroundTextStyle":"light",
+      "navigationBarBackgroundColor": "#fa785c",
+      "navigationBarTitleText": "WeChat",
+      "navigationBarTextStyle":"black"
+    }
+}

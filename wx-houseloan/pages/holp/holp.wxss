@@ -1,0 +1,104 @@
+.holp .nav {
+    padding: 62rpx 90rpx 0;
+    background: #fff;
+    display: flex;
+}
+.holp .nav .nav-item {
+    flex: 1;
+    background: #f9f9f9;
+    text-align: center;
+    border: 2rpx solid #e4e4ef;
+    height: 72rpx;
+    box-sizing: border-box;
+    line-height: 72rpx;
+}
+.holp .nav .nav-item.active {
+    color: #fa785c;
+    transform: scaleY(1.05);
+    background: #fff;
+}
+/* 导航样式结束 */
+/* 贷款结算说明样式 */
+.holp .loan {
+}
+.holp .loan .card, .holp .taxes .card {
+    background: #fff;
+    padding: 0 40rpx;
+}
+.holp .loan .card .h1,.holp .taxes .card .h1 {
+    text-align: center;
+    font-weight: bold;
+    padding: 50rpx 0 25rpx 0;
+}
+.holp .loan .card .text,.holp .taxes .card .text{
+    color: #7f808a;
+    line-height: 45rpx;
+    border-bottom: 2rpx solid #e4e4ef;
+    padding-bottom: 20rpx;
+}
+.holp .loan .card .formula {
+    padding: 50rpx 0 40rpx 0;
+}
+.holp .loan .card .formula .formula-title {
+    color: #fa785c;
+    padding-bottom: 25rpx;
+}
+.formula-text {
+     color: #7f808a;
+    line-height: 45rpx;
+}
+.one-card, .two-card {
+    margin-bottom: 18rpx;
+}
+
+
+/* 备注 */
+.remarks {
+    padding-bottom: 25rpx;
+    color: #7f808a;
+}
+/* 表格样式 */
+.table {
+    width: 100%;
+    color: #7f808a;
+}
+.tr, .th {
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    border: 2rpx solid #f1e5e7;
+    border-bottom: none;
+}
+.tr .td:first-child, .th .td:first-child {
+    border-right: 2rpx solid #f1e5e7;
+}
+.table .tr:last-child {
+    border-bottom: 1px solid #f1e5e7;
+}
+.td {
+    flex: 1;
+    text-align: center;
+}
+.td-bg {
+    background: #fff4f2;
+}
+
+.p-t-30 {
+    padding-top: 30rpx;
+}
+
+
+/* 税费详细说明样式  */
+.holp .taxes .card {
+    padding-bottom: 40rpx;
+    margin-bottom: 18rpx;
+}
+.holp .taxes .card:last-child {
+    margin-bottom: 90rpx;
+}
+.text-title {
+     color: #7f808a;
+}
+.holp .taxes .card .text {
+    border: none;
+}

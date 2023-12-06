@@ -1,0 +1,34 @@
+<view class="home">
+    <view class='home-top-search'>
+        <button>搜索： 星河国际</button>
+        <view class='fx'>
+            <image class='fxImg' src='/images/share.png'></image>
+            <text>分享</text>
+        </view>
+    </view>
+    <view class='banner'>
+        <swiper indicator-dots autoplay indicator-active-color='#fa785c' indicator-color='rgba(255,255,255,.8)'>
+            <swiper-item>
+                <view>
+                    <image src='/images/holp.png'></image>
+                </view>
+            </swiper-item>
+            <swiper-item>
+                <view>
+                    <image src='/images/展开.png'></image>
+                </view>
+            </swiper-item>
+            <swiper-item>
+                <view>
+                    <image src='/images/收起.png'></image>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class='nav'></view>
+    <view class='fast-search'></view>
+    <view class='hot'></view>
+    <view class='be-after'></view>
+    <view class='news'></view>
+    <view class='footer'></view>
+</view>

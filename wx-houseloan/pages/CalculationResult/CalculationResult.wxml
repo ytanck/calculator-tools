@@ -1,0 +1,152 @@
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
+<view class="js-result">
+    <view wx:if="{{is == 0}}" class='main'>
+        <view class='top'>
+            <view class='left-dots'></view>
+            <view class='right-dots'></view>
+            <view class='title'>
+                <view wx:if='{{result.calculation != "单价"}}'>贷款总额</view>
+                <view wx:if='{{result.calculation == "单价"}}'>房款总额</view>
+                <view class='fx'>
+                    <image class='fxImg' src='/images/share.png'></image>
+                    <text>分享</text>
+                </view>
+            </view>
+            <view class='top-main'>
+                <view class='top-num'>{{result.calculation == "单价"? result.homePrice / 10000:result.totalLoans}} <text style='font-size:25rpx;'>万元</text></view>
+                <view class='top-Month'>贷款 <text class='r-month'>{{result.month}}</text>月</view>
+                
+            </view>
+        </view>
+        <view class='content clearFix'>
+            <view>
+                <view class='h1'>贷款总额(万元)</view>
+                <view class='num'>{{result.totalLoans}}</view>
+            </view>
+            <view>
+                <view class='h1'>还款总额(万元)</view>
+                <view class='num'>{{filters.toFix(result.totalMoney)}}</view>
+            </view>
+            <view>
+                <view class='h1'>支付利息(万元)</view>
+                <view class='num'>{{result.totalInterest}}</view>
+            </view>
+            <view>
+                <view class='h1'>还款方式</view>
+                <view class='num'>{{result.hk_Method}}</view>
+            </view>
+            <view wx:if="{{result.isshow == 1}}">
+                <view class='h1'>首期还款</view>
+                <view class='num'>{{result.curMonth}}</view>
+            </view>
+        </view>
+        <view class='footer'>
+            <view class='every-month-title'>
+                月均还款
+            </view>
+            <view class='every-monthmoney'>
+                {{filters.toFix(result.totalMoney / result.month * 10000)}}元
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{is == 0}}" class='gotoInfo' bindtap='gotoInfo'>
+        <view class='text'>贷款明细</view>
+        <image class='r_corner' src='/images/r_corner.png'></image>
+    </view>
+
+
+
+
+<!-- 税费 -->
+    <view wx:if="{{is == 1 && result.is == '新房'}}" class='main'>
+        <view class='top'>
+            <view class='left-dots'></view>
+            <view class='right-dots'></view>
+            <view class='title'>
+                <view>房款总额</view>
+                <view class='fx'>
+                    <image class='fxImg' src='/images/share.png'></image>
+                    <text>分享</text>
+                </view>
+            </view>
+            <view class='top-main'>
+                <view class='top-num'>{{result.home_money / 10000}} <text style='font-size:25rpx;'>万元</text></view>
+            </view>
+        </view>
+        <view class='content clearFix'>
+            <view>
+                <view class='h1'>契税(元)</view>
+                <view class='num'>{{result.q_tax}}</view>
+            </view>
+            <view>
+                <view class='h1'>印花税(元)</view>
+                <view class='num'>{{filters.toFix(result.y_tax)}}</view>
+            </view>
+            <view>
+                <view class='h1'>权属登记费(元)</view>
+                <view class='num'>{{result.qs_tax}}</view>
+            </view>
+            <view>
+                <view class='h1'>维修基金(元)</view>
+                <view class='num'>{{result.vx_money}}</view>
+            </view>
+            <view>
+                <view class='h1'>交易手续费(元)</view>
+                <view class='num'>{{result.jy_money}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view wx:if="{{is == 1 && result.is == '二手房'}}" class='main'>
+        <view class='top'>
+            <view class='left-dots'></view>
+            <view class='right-dots'></view>
+            <view class='title'>
+                <view>买方税费总计</view>
+                <view class='fx'>
+                    <image class='fxImg' src='/images/share.png'></image>
+                    <text>分享</text>
+                </view>
+            </view>
+            <view class='top-main'>
+                <view class='top-num'>{{result.q_tax + result.jy_money + result.add_tax}} <text style='font-size:25rpx;'>元</text></view>
+            </view>
+        </view>
+        <view class='content clearFix'>
+            <view>
+                <view class='h1'>契税(元)</view>
+                <view class='num'>{{result.q_tax}}</view>
+            </view>
+            <view>
+                <view class='h1'>交易手续费(元)</view>
+                <view class='num'>{{result.jy_money}}</view>
+            </view>
+            <view>
+                <view class='h1'>土地增值税(元)</view>
+                <view class='num'>{{result.add_tax}}</view>
+            </view>
+        </view>
+        <view style='padding-top: 30rpx;' class='top'>
+            <view class='title'>
+                <view  style='height: 58rpx;'>卖方税费总计</view>
+            </view>
+            <view class='top-main'>
+                <view class='top-num'>{{result.business_tax + result.income_tax < 0 ? result.business_tax : result.business_tax + result.income_tax}} <text style='font-size:25rpx;'>元</text></view>
+            </view>
+        </view>
+        <view class='content clearFix'>
+            <view>
+                <view class='h1'>营业税(元)</view>
+                <view class='num'>{{result.business_tax}}</view>
+            </view>
+            <view>
+                <view class='h1'>个人所得税(元)</view>
+                <view class='num'>{{result.income_tax < 0 ? 0 : result.income_tax}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 备注 -->
+   <view class='Remarks'>
+        备注： 以上结果仅供参考, 房产计算结果最终以实际交易金额为准
+   </view>
+</view>

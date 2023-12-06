@@ -1,0 +1,5 @@
+<view>
+    <view>现价： <input bindblur='change' type='number' value='{{money}}'></input></view>
+    <view>原价： <input bindblur='change_a' type='number' value='{{o_money}}'></input></view>
+    <button bindtap='sub'>计算</button>
+</view>

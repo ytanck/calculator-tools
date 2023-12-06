@@ -1,0 +1,15 @@
+.search view {
+    line-height: 1;
+}
+.search .icon {
+    width: 25rpx;
+    height: 25rpx;
+    background: red;
+}
+.search .search-top {
+    display: flex;
+}
+.search .search-top .reset {
+    background: #fff;
+    border: none;
+}

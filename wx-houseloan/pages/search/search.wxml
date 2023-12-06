@@ -1,0 +1,29 @@
+<view class="search">
+    <view class='search-top'>
+        <image class='icon'></image>
+        <input class='search-input' placeholder='搜索'></input>
+        <text>取消</text>
+    </view>
+    <view class='search-history'>
+        <view class='search-history-top'>
+            <view class='text'>历史搜索</view>
+            <view class='delete'>
+                <image class='icon'></image>
+            </view>
+        </view>
+        <view class='search-history-list'>
+            <view class='search-history-item'>
+                天津
+            </view>
+            <view class='search-history-item'>
+                星河国际
+            </view>
+            <view class='search-history-item'>
+                天津市滨海新区
+            </view>
+        </view>
+    </view>
+    <view class='hot-search'>
+        <view class='hot-search-item'>2018购房报告</view>
+    </view>
+</view>
