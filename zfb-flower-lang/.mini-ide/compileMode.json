@@ -1,0 +1,16 @@
+{
+  "modes": [
+    {
+      "title": "详情",
+      "page": "pages/detail/index",
+      "launchMode": "common",
+      "pageQuery": ""
+    },
+    {
+      "title": "pages/list/index",
+      "page": "pages/list/index",
+      "launchMode": "common",
+      "pageQuery": ""
+    }
+  ]
+}

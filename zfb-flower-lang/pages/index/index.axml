@@ -1,0 +1,22 @@
+<view class="page-wraper">
+    <view class="top"></view>
+    <view class="search">
+      <input class="input" onInput="bindKeyInput" placeholder="你喜欢什么花" />
+      <view class="btn" onTap="queryList">查看花语</view>
+    </view>
+    <view class="refresh">
+      <view class="wrap">
+        <view class="item" a:for="{{fourFlowers}}">
+          <view class="left">
+            <image src="{{item.image}}"></image>
+          </view>
+          <view class="right">
+            <view>{{item.name}}</view>
+            <view class="small-btn" data-item="{{item}}" onTap="queryFlowerLang">查看花语</view>
+          </view>
+        </view>
+        
+      </view>
+      <view class="refresh-btn btn" onTap="myRandom">换一批花</view>
+    </view>
+</view>

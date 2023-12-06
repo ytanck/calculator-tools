@@ -1,0 +1,12 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/detail/index",
+        "pages/list/index"
+    ],
+    "plugins": {},
+    "window": {
+        "defaultTitle": "鲜花花语",
+        "allowsBounceVertical": "YES"
+    }
+}

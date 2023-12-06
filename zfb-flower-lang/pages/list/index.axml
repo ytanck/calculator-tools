@@ -1,0 +1,6 @@
+<view class="page-wraper">
+  <view class="item" a:for="{{flowerList}}">
+    <view class="left">{{item.name}}</view>
+    <view class="right" data-item="{{item}}" onTap="queryFlowerLang">查看详情 ></view></view></view>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<view class="page-wraper">
+  <!-- <image class="image" mode="heightFix" src="{{flower.image}}" /> -->
+  <view class="image" style="background:url('https://xiaojinhe-cdn.iyoudui.cn/upload/common/2023125/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20231205133407.jpg') no-repeat center /contain"></view>
+
+  <view class="main">
+    <view class="title">{{flower.name}}</view>
+    <view class="tips">赠与人: </view>
+    <view class="text">{{flower.people||'朋友'}} </view>
+    <view class="tips">花语: </view>
+    <view class="text">{{flower.floral_lang}}</view>
+  </view>
+</view>

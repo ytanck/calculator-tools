@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.btn {
+  margin: 0 auto;
+  width: 502rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+  border-radius: 50rpx;
+  background-color: #fb799f;
+}
+image {
+  width: 100%;
+  height: 100%;
+}
+.page-wraper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(253, 234, 238);
+  text-align: center;
+}
+.page-wraper .top {
+  width: 702rpx;
+  height: 332rpx;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  background: url(https://xiaojinhe-cdn.iyoudui.cn/upload/common/2023125/20231205160523.jpg) no-repeat center / contain;
+}
+.page-wraper .search {
+  width: 702rpx;
+  height: 434rpx;
+  border: 1px solid #fb799f;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+.page-wraper .search .input {
+  display: block;
+  width: 502rpx;
+  height: 90rpx;
+  margin: 80rpx auto;
+  border: 1px solid #fb799f;
+  border-radius: 50rpx;
+  overflow: hidden;
+}
+.page-wraper .refresh {
+  width: 702rpx;
+  height: 530rpx;
+}
+.page-wraper .refresh .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 15rpx;
+}
+.page-wraper .refresh .wrap .item {
+  margin-bottom: 10rpx;
+  width: 325rpx;
+  height: 170rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  overflow: hidden;
+}
+.page-wraper .refresh .wrap .item .left {
+  float: left;
+  width: 170rpx;
+  height: 170rpx;
+}
+.page-wraper .refresh .wrap .item .right {
+  padding: 10rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-self: center;
+  float: right;
+  width: 155rpx;
+  height: 165rpx;
+  font-size: 24rpx;
+  color: #fb799f;
+}
+.page-wraper .refresh .wrap .item .right .small-btn {
+  margin: 0 auto;
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #fff;
+  border-radius: 50rpx;
+  background-color: #fb799f;
+}

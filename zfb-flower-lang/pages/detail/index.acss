@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.page-wraper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(253, 234, 238);
+}
+.image {
+  width: 100%;
+  height: 400rpx;
+}
+.main {
+  width: 702rpx;
+  height: 500rpx;
+  padding: 40rpx;
+  margin-top: 40rpx;
+  background-color: #fff;
+  border: 1px solid #fb799f;
+  border-radius: 20rpx;
+}
+.main .title {
+  text-align: center;
+  font-weight: 600;
+}
+.main .tips {
+  margin: 40rpx 0 20rpx 0;
+  width: 150rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  background-color: #fb799f;
+  text-align: center;
+  border-radius: 30rpx 0 30rpx 0;
+}

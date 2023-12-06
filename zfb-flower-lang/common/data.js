@@ -1,0 +1,476 @@
+const flowers = [{
+  "code": 1,
+  "name": "玫瑰（红）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/1.jpg",
+  "people": "朋友、恋人、爱人",
+  "floral_lang": "热烈爱的宣言，铭记于心的约定爱这花儿般优雅的你"
+}, {
+  "code": 2,
+  "name": "玫瑰（粉红）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/2.jpg",
+  "people": "爱人、情人",
+  "floral_lang": "感动、诱惑、初恋粉红玫瑰（花蕾）恋之告白粉红玫瑰（大型花）怀孕花束；单纯、朴素（单瓣）结合（红白相间）。足以与你相配"
+}, {
+  "code": 3,
+  "name": "玫瑰（白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/3.jpg",
+  "people": "朋友、爱人",
+  "floral_lang": "天真、纯洁、尊敬 、我足以与你相配白玫瑰（小型花） 淡薄，年轻"
+}, {
+  "code": 6,
+  "name": "玫瑰（蓝）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/6.jpg",
+  "people": null,
+  "floral_lang": "神秘、妖娆、恒心、坚毅、珍贵、敦厚善良，有个性和 创意，无法得到的东西，奇迹与不可能的事，神之祝福"
+}, {
+  "code": 7,
+  "name": "蓝色妖姬",
+  "image": "http://pic1.jisuapi.cn/flower/upload/7.jpg",
+  "people": "恋人、爱人",
+  "floral_lang": "单枝相守是一种承诺双枝相遇是一种宿命三枝你是我最深的爱恋六枝你是我的最爱七枝无尽的祝福十一枝一心一意十二枝+满天星哦，我的玫瑰情人，我要挑逗你、诱惑你、宠爱你、纵容你！我要你做我的蓝色精灵，对全世界扬起骄傲的唇角，在爱的天空中翱翔。"
+}, {
+  "code": 10,
+  "name": "玫瑰（紫）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/10.jpg",
+  "people": "爱人、恋人",
+  "floral_lang": "珍惜的爱、浪漫真情、珍贵独特"
+}, {
+  "code": 21,
+  "name": "蔷薇（红）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/21.jpg",
+  "people": "恋人、情人、爱人",
+  "floral_lang": "热恋 高贵而美丽"
+}, {
+  "code": 22,
+  "name": "蔷薇（粉白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/22.jpg",
+  "people": '恋人、爱人',
+  "floral_lang": "爱的誓言，执子之手，与子偕老美丽的邂逅 单纯而可爱"
+}, {
+  "code": 23,
+  "name": "蔷薇（白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/23.jpg",
+  "people": "恋人、爱人",
+  "floral_lang": "纯洁的爱情 神秘而凄凉 冷漠"
+}, {
+  "code": 24,
+  "name": "蔷薇（黄）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/24.jpg",
+  "people": "朋友、爱人、恋人",
+  "floral_lang": "永恒的微笑 自信而善良"
+}, {
+  "code": 25,
+  "name": "蔷薇（深红）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/25.jpg",
+  "people": "朋友、爱人、恋人",
+  "floral_lang": "只想与你在一起"
+}, {
+  "code": 34,
+  "name": "牡丹",
+  "image": "http://pic1.jisuapi.cn/flower/upload/34.jpg",
+  "people": '爱人、朋友',
+  "floral_lang": "喜欢牡丹的人以宽大的心胸和献身的爱情与人交往。圆满、浓情、富贵、雍容华贵"
+}, {
+  "code": 35,
+  "name": "牡丹（白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/35.jpg",
+  "people": "父母、客户、老师、朋友",
+  "floral_lang": "王者风范，以及人对美好事物的追求和向往。"
+}, {
+  "code": 38,
+  "name": "翠菊",
+  "image": "http://pic1.jisuapi.cn/flower/upload/38.jpg",
+  "people": null,
+  "floral_lang": "追想、可靠的爱情、请相信我"
+}, {
+  "code": 40,
+  "name": "春菊",
+  "image": "http://pic1.jisuapi.cn/flower/upload/40.jpg",
+  "people": null,
+  "floral_lang": "为爱情占卜"
+}, {
+  "code": 42,
+  "name": "冬菊",
+  "image": "http://pic1.jisuapi.cn/flower/upload/42.jpg",
+  "people": null,
+  "floral_lang": "孤傲绝俗"
+}, {
+  "code": 48,
+  "name": "甘菊（洋甘菊）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/48.jpg",
+  "people": null,
+  "floral_lang": "苦难中的力量"
+}, {
+  "code": 64,
+  "name": "紫罗兰",
+  "image": "http://pic1.jisuapi.cn/flower/upload/64.jpg",
+  "people": "朋友、亲人、同事、长辈、爱人",
+  "floral_lang": "请相信我、永恒的美、无尽的爱"
+}, {
+  "code": 65,
+  "name": "吊兰",
+  "image": "http://pic1.jisuapi.cn/flower/upload/65.jpg",
+  "people": null,
+  "floral_lang": "朴实、天真、淡雅、纯洁、希望、宁静"
+}, {
+  "code": 68,
+  "name": "剑兰",
+  "image": "http://pic1.jisuapi.cn/flower/upload/68.jpg",
+  "people": "情人、父亲、老师、朋友、同学",
+  "floral_lang": "用心、坚贞长寿、福禄、康宁、坚固"
+}, {
+  "code": 75,
+  "name": "君子兰",
+  "image": "http://pic1.jisuapi.cn/flower/upload/75.jpg",
+  "people": null,
+  "floral_lang": "高贵、宝贵、丰盛、有君子之风"
+}, {
+  "code": 79,
+  "name": "百合（白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/79.jpg",
+  "people": "朋友、爱人、情人",
+  "floral_lang": "纯洁、庄严、心心相印"
+}, {
+  "code": 88,
+  "name": "郁金香",
+  "image": "http://pic1.jisuapi.cn/flower/upload/88.jpg",
+  "people": null,
+  "floral_lang": "箴言，走出孤独，自然会邂逅永恒的爱情。爱的表白、荣誉、祝福永恒"
+}, {
+  "code": 89,
+  "name": "郁金香（红）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/89.jpg",
+  "people": "爱人、客户、领导/长辈、朋友/同事",
+  "floral_lang": "爱的宣言、喜悦、热爱"
+}, {
+  "code": 90,
+  "name": "郁金香（粉）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/90.jpg",
+  "people": "爱人、领导/长辈、朋友/同事",
+  "floral_lang": "美人、热爱、幸福"
+}, {
+  "code": 91,
+  "name": "郁金香（黄）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/91.jpg",
+  "people": "爱人、老师、客户、领导/长辈",
+  "floral_lang": "高贵、珍重、财富、绝望之爱、拒绝、你的笑容里含着阳光、对没有希望的爱情表示同情"
+}, {
+  "code": 93,
+  "name": "郁金香（白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/93.jpg",
+  "people": "朋友、同事、长辈、情人",
+  "floral_lang": "纯情、纯洁"
+}, {
+  "code": 97,
+  "name": "康乃馨（红）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/97.jpg",
+  "people": "母亲、长辈",
+  "floral_lang": "相信你的爱"
+}, {
+  "code": 99,
+  "name": "康乃馨（白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/99.jpg",
+  "people": "母亲、老师、长辈、女性",
+  "floral_lang": "吾爱永在、真情、纯洁"
+}, {
+  "code": 100,
+  "name": "康乃馨（黄）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/100.jpg",
+  "people": "母亲、长辈",
+  "floral_lang": "藐视"
+}, {
+  "code": 101,
+  "name": "石竹",
+  "image": "http://pic1.jisuapi.cn/flower/upload/101.jpg",
+  "people": null,
+  "floral_lang": "纯洁的爱、才能、大胆、女性美"
+}, {
+  "code": 105,
+  "name": "樱花",
+  "image": "http://pic1.jisuapi.cn/flower/upload/105.jpg",
+  "people": null,
+  "floral_lang": "生命、幸福一生一世永不放弃，命运的法则就是循环纯洁"
+}, {
+  "code": 110,
+  "name": "樱花草",
+  "image": "http://pic1.jisuapi.cn/flower/upload/110.jpg",
+  "people": "爱人、恋人、情人、夫妻",
+  "floral_lang": "除你之外别无他爱青春"
+}, {
+  "code": 114,
+  "name": "黄水仙",
+  "image": "http://pic1.jisuapi.cn/flower/upload/114.jpg",
+  "people": null,
+  "floral_lang": "重温爱情"
+}, {
+  "code": 116,
+  "name": "风信子",
+  "image": "http://pic1.jisuapi.cn/flower/upload/116.jpg",
+  "people": null,
+  "floral_lang": "（别名西洋水仙）：永远的怀念。只要点燃生命之火，便可同享丰富人生；胜利 竞技 得意"
+}, {
+  "code": 119,
+  "name": "风信子（白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/119.jpg",
+  "people": "朋友、情人",
+  "floral_lang": "暗恋。纯洁清淡或不敢表露的爱"
+}, {
+  "code": 120,
+  "name": "风信子（红）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/120.jpg",
+  "people": "朋友、爱人",
+  "floral_lang": "感谢你，让人感动的爱（你的爱充满我心中）"
+}, {
+  "code": 122,
+  "name": "风信子（粉）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/122.jpg",
+  "people": "朋友、情人",
+  "floral_lang": "倾慕、浪漫。"
+}, {
+  "code": 123,
+  "name": "风信子（黄）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/123.jpg",
+  "people": "朋友、爱人、情人",
+  "floral_lang": "有你我就很幸福。"
+}, {
+  "code": 129,
+  "name": "金鱼草（黄）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/129.jpg",
+  "people": null,
+  "floral_lang": "金银满堂"
+}, {
+  "code": 131,
+  "name": "金鱼草（粉）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/131.jpg",
+  "people": null,
+  "floral_lang": "花好月圆"
+}, {
+  "code": 132,
+  "name": "姬金鱼草",
+  "image": "http://pic1.jisuapi.cn/flower/upload/132.jpg",
+  "people": null,
+  "floral_lang": "请察觉我的爱意。"
+}, {
+  "code": 133,
+  "name": "荷花",
+  "image": "http://pic1.jisuapi.cn/flower/upload/133.jpg",
+  "people": null,
+  "floral_lang": "清白、坚贞纯洁、忠贞和爱情、孤傲、冰清玉洁、自由脱俗"
+}, {
+  "code": 144,
+  "name": "睡莲",
+  "image": "http://pic1.jisuapi.cn/flower/upload/144.jpg",
+  "people": "情人、爱人、亲戚、朋友",
+  "floral_lang": "依赖、纯洁、甜美，也有美梦、暂时碌碌无为后再度一鸣惊人的意思。清纯无邪"
+}, {
+  "code": 146,
+  "name": "梅花（红梅）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/146.jpg",
+  "people": null,
+  "floral_lang": "坚贞不屈、欺霜傲雪、艳丽迷人"
+}, {
+  "code": 147,
+  "name": "梅花（白梅）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/147.jpg",
+  "people": null,
+  "floral_lang": "纯洁、坚贞不屈"
+}, {
+  "code": 149,
+  "name": "杜鹃",
+  "image": "http://pic1.jisuapi.cn/flower/upload/149.jpg",
+  "people": "爱人、恋人、情人、家人",
+  "floral_lang": "代表爱的喜悦，据说喜欢此花的人纯真无邪。花的箴言是当见到满山盛开，就是爱神降临的时候。花语：爱的欣喜，节制，节制欲望，永远属于你。花色含意：爱的喜悦它的花语中的“节制”，最大的原因就是：它只在自己的花季中绽放，即使总是给人热闹而喧腾的感觉；而不是花季"
+}, {
+  "code": 151,
+  "name": "丁香花（别名龙百花）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/151.jpg",
+  "people": "情人、朋友",
+  "floral_lang": "光辉灿烂"
+}, {
+  "code": 152,
+  "name": "丁香（白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/152.jpg",
+  "people": null,
+  "floral_lang": "纯洁"
+}, {
+  "code": 153,
+  "name": "丁香（红）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/153.jpg",
+  "people": null,
+  "floral_lang": "想起初恋的她、羞怯"
+}, {
+  "code": 158,
+  "name": "向日葵",
+  "image": "http://pic1.jisuapi.cn/flower/upload/158.jpg",
+  "people": null,
+  "floral_lang": "沉默的爱、爱慕、光辉、忠诚、无望的爱"
+}, {
+  "code": 161,
+  "name": "三叶草",
+  "image": "http://pic1.jisuapi.cn/flower/upload/161.jpg",
+  "people": null,
+  "floral_lang": "代表爱情"
+}, {
+  "code": 162,
+  "name": "四叶草",
+  "image": "http://pic1.jisuapi.cn/flower/upload/162.jpg",
+  "people": null,
+  "floral_lang": "代表幸福、真诚的爱，信仰和希望你如果找到了四叶草就是找到了幸福和爱"
+}, {
+  "code": 166,
+  "name": "蒲公英",
+  "image": "http://pic1.jisuapi.cn/flower/upload/166.jpg",
+  "people": "友人、同事",
+  "floral_lang": "充满朝气的黄色花朵。开朗，属性风。停不了的爱，无法停留的爱，永不止息的爱。"
+}, {
+  "code": 170,
+  "name": "牵牛花",
+  "image": "http://pic1.jisuapi.cn/flower/upload/170.jpg",
+  "people": "恋人、爱人、朋友",
+  "floral_lang": "爱情、冷静、虚幻"
+}, {
+  "code": 173,
+  "name": "火鹤",
+  "image": "http://pic1.jisuapi.cn/flower/upload/173.jpg",
+  "people": "朋友、同事、家人、结婚新人",
+  "floral_lang": "薪火相传"
+}, {
+  "code": 175,
+  "name": "海芋（白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/175.jpg",
+  "people": "恋人、情人、同学、朋友",
+  "floral_lang": "（同学、朋友）青春活力"
+}, {
+  "code": 179,
+  "name": "曼珠沙华（红色彼岸花）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/179.jpg",
+  "people": null,
+  "floral_lang": "无望的爱，相互思念，分离，伤心，不吉祥，死亡之美。自由与青春永不相见，我在你看不到的地方永远守候你，悲伤的回忆"
+}, {
+  "code": 180,
+  "name": "曼陀罗华（白色彼岸花）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/180.jpg",
+  "people": null,
+  "floral_lang": "绝望的爱情"
+}, {
+  "code": 181,
+  "name": "查克莱因蓝（蓝色彼岸花）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/181.jpg",
+  "people": null,
+  "floral_lang": "死亡与颠沛流离的爱"
+}, {
+  "code": 182,
+  "name": "曼陀罗（白）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/182.jpg",
+  "people": null,
+  "floral_lang": "情花，如用酒吞服，会使人发笑，有麻醉作用。是天上开的花，白色而柔软，见此花者，恶自去除。"
+}, {
+  "code": 183,
+  "name": "曼陀罗（金）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/183.jpg",
+  "people": null,
+  "floral_lang": "敬爱，天生的幸运儿，不止息的幸福。"
+}, {
+  "code": 189,
+  "name": "曼陀罗（红）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/189.jpg",
+  "people": null,
+  "floral_lang": "非曼珠沙华。 流血血腥的爱"
+}, {
+  "code": 190,
+  "name": "山茶",
+  "image": "http://pic1.jisuapi.cn/flower/upload/190.jpg",
+  "people": "爱人、女性、朋友",
+  "floral_lang": "质朴、希望"
+}, {
+  "code": 194,
+  "name": "虞美人",
+  "image": "http://pic1.jisuapi.cn/flower/upload/194.jpg",
+  "people": "不适宜",
+  "floral_lang": "倾国倾城"
+}, {
+  "code": 199,
+  "name": "桔梗",
+  "image": "http://pic1.jisuapi.cn/flower/upload/199.jpg",
+  "people": null,
+  "floral_lang": "永恒的爱、无望的爱 、真诚不变的爱"
+}, {
+  "code": 204,
+  "name": "富贵竹",
+  "image": "http://pic1.jisuapi.cn/flower/upload/204.jpg",
+  "people": null,
+  "floral_lang": "吉祥、富贵"
+}, {
+  "code": 205,
+  "name": "龟背竹",
+  "image": "http://pic1.jisuapi.cn/flower/upload/205.jpg",
+  "people": null,
+  "floral_lang": "健康长寿"
+}, {
+  "code": 206,
+  "name": "文竹",
+  "image": "http://pic1.jisuapi.cn/flower/upload/206.jpg",
+  "people": null,
+  "floral_lang": "永恒"
+}, {
+  "code": 207,
+  "name": "枫",
+  "image": "http://pic1.jisuapi.cn/flower/upload/207.jpg",
+  "people": null,
+  "floral_lang": "自制"
+}, {
+  "code": 208,
+  "name": "红枫",
+  "image": "http://pic1.jisuapi.cn/flower/upload/208.jpg",
+  "people": null,
+  "floral_lang": "热忱"
+}, {
+  "code": 209,
+  "name": "合欢（金）",
+  "image": "http://pic1.jisuapi.cn/flower/upload/209.jpg",
+  "people": null,
+  "floral_lang": "优美"
+}, {
+  "code": 219,
+  "name": "三色堇",
+  "image": "http://pic1.jisuapi.cn/flower/upload/219.jpg",
+  "people": "朋友",
+  "floral_lang": "沉思，快乐，请思恋我"
+}, {
+  "code": 231,
+  "name": "薰衣草",
+  "image": "http://pic1.jisuapi.cn/flower/upload/231.jpg",
+  "people": "朋友、爱人",
+  "floral_lang": "等待爱情，等待你说爱我——只要用力呼吸，就能看见奇迹。"
+}, {
+  "code": 232,
+  "name": "杏花",
+  "image": "http://pic1.jisuapi.cn/flower/upload/232.jpg",
+  "people": null,
+  "floral_lang": "疑惑"
+}, {
+  "code": 238,
+  "name": "鸡蛋花",
+  "image": "http://pic1.jisuapi.cn/flower/upload/238.jpg",
+  "people": null,
+  "floral_lang": "孕育希望，复活，新生，平凡朴实，神圣纯洁，平和友好，希望和新生"
+}, {
+  "code": 255,
+  "name": "木棉花",
+  "image": "http://pic1.jisuapi.cn/flower/upload/255.jpg",
+  "people": "朋友",
+  "floral_lang": "英雄之花、珍惜眼前的幸福"
+}, {
+  "code": 277,
+  "name": "满天星",
+  "image": "http://pic1.jisuapi.cn/flower/upload/277.jpg",
+  "people": "恋人、朋友、同事",
+  "floral_lang": "关心、纯洁、喜悦"
+}, {
+  "code": 286,
+  "name": "桂花",
+  "image": "http://pic1.jisuapi.cn/flower/upload/286.jpg",
+  "people": "朋友、情人、爱人同事",
+  "floral_lang": "友好、吉祥"
+}];
+export default flowers;

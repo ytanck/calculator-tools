@@ -1,4 +1,4 @@
-## 房贷计算器多合一仓库
+## 房贷计算器工具多合一仓库
 
 - BMI性格测试-h5
 <div><img src="/h5-BMI-Test/1701850415339.jpg" width="200" alt="BMI性格测试"/></div>
@@ -20,3 +20,6 @@
 
 - 支付宝小程序房贷计算器
 <div><img src="/zfb-financetools/1701848231607.jpg" width="200" alt="支付宝小程序房贷计算器"/></div>
+
+- 支付宝小程序鲜花花语
+<div><img src="/zfb-flower-lang/1701854098382.jpg" width="200" alt="支付宝小程序鲜花花语"/></div>
