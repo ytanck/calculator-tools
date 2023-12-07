@@ -23,3 +23,6 @@
 
 - 支付宝小程序鲜花花语
 <div><img src="/zfb-flower-lang/1701854098382.jpg" width="200" alt="支付宝小程序鲜花花语"/></div>
+
+- 社保公积金计算-支付宝小程序
+<div><img src="/zfb-wxyj/1701913377374.jpg" width="200" alt="社保公积金计算"/></div>

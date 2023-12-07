@@ -1,19 +1,10 @@
 {
   "pages": [
     "pages/mortgage/mortgage",
-    "pages/finance/finance",
-    "pages/index/index",
-    "pages/finance/func/func",
-    "pages/wuxian-yijin/wxyj",
-    "pages/logs/logs",
     "pages/mortgage/detail/detail"
   ],
   "window": {
     "defaultTitle": "房贷计算器",
-    "navigationBarTextStyle": "white",
-    "navigationBarBackgroundColor": "#108ee9",
-    "backgroundTextStyle": "dark",
-    "backgroundColor": "#f8f8f8",
-    "navigationBarTitleText": "Finance"
+    "backgroundColor": "#f8f8f8"
   }
 }

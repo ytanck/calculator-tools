@@ -1,0 +1,9 @@
+{
+  "pages": [
+    "pages/wuxian-yijin/wxyj"
+  ],
+  "window": {
+    "defaultTitle": "社保公积金计算器",
+    "backgroundColor": "#f8f8f8"
+  }
+}
