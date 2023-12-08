@@ -30,13 +30,6 @@ Page({
       fs.mkdirSync(cacheFileDir, true)
     } catch (e) {}
 
-    // try {
-    //   let value = wx.getStorageSync(this.data.key);
-    //   let item = JSON.parse(value);
-    //   this.setData({
-    //     classlist: item
-    //   })
-    // } catch (error) {}
   },
 
   /**
