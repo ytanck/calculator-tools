@@ -1,0 +1,15 @@
+<!--pages/home/info/index.wxml-->
+<wxs module="filters" src="../../utils/filter.wxs"></wxs>
+<view >
+
+  <view class="items-list-wrap wr-class">
+  <block wx:for="{{itemsList}}" wx:for-item="item" wx:key="index" >
+    <view wx:if="{{index==0}}" class="line"></view>
+    <view class="item-list-wrap">
+        <text class="item_name" data-item="{{item}}" bindtap="clickNews">{{item.title}}</text>
+    </view>
+    <view class="line"></view>
+  </block>
+</view>
+
+</view>

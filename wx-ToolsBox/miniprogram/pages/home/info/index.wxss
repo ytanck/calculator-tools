@@ -1,0 +1,34 @@
+/* pages/home/info/index.wxss */
+.top_info{
+  font-size: 10pt;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  color: #1296db;
+}
+.item-list-wrap{
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  background-color: #fff;
+  height: 100rpx;
+  align-items: center;
+  font-size: 36rpx;
+}
+.item_name{
+  width: 90%;
+  padding: 0 20rpx;
+  font-size: 10pt;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/*分割线样式*/
+.line {
+  background: #E0E3DA;
+  width: 100%;
+  height: 2rpx;
+}

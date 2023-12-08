@@ -1,0 +1,20 @@
+<!--pages/home/home/index.wxml-->
+<view class="banner">
+  <image src="https://via.placeholder.com/720x200?text=ceshi" mode="widthFix"/>
+</view>
+<scroll-view class="container" scroll-y="true">
+  <view wx:if="{{!appData.isRelease&&user.extend.topMessage}}" class="top_info">
+    <view style="white-space: pre-wrap;">{{user.extend.topMessage}}</view>
+  </view>
+  <view class="items-list-wrap">
+    <block wx:for="{{classlist}}" wx:for-item="item" wx:key="index">
+      <view class="item-list-wrap" data-id="{{item}}" bind:tap="selectTop">
+        <image class="imgs data-v-8d1cd75a" lazyLoad="{{true}}" src="{{item.icon}}"></image>
+        <text class="item_name">{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+<view class="banner">
+  <image src="https://via.placeholder.com/720x200?text=ceshi" mode="widthFix"/>
+</view>
