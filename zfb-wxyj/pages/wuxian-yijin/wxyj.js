@@ -1,10 +1,9 @@
 Page({
   data: {
-    cities: ["北京", "上海", "深圳", "杭州", "南昌", "抚州"],
+    cities: ["北京", "上海", "深圳", "杭州", "南昌", "抚州",'武汉'],
     cityIndex: 0,
 
     types: ["城镇", "五险", "深户一档", "城镇", "五险", "不限"],
-    // typeIndex: 0,
     shebao: 3082,
     gjj: 2148,
     personTotal: '-',
@@ -433,7 +432,74 @@ Page({
             total: '-'
           }
         ]
-      }
+      },
+      {
+        city: "武汉",
+        shebao: { min: 4224, max: 21120 },
+        gjj: { min: 1800, max: 31098 },
+        detail: [
+          {
+            name: "养老保险",
+            person: '',
+            personRate: .08,
+            personTip: "8%",
+            company: '',
+            companyRate: .16,
+            companyTip: "16%",
+            total: '-'
+          },
+          {
+            name: "医疗保险",
+            person: '',
+            personRate: .02,
+            personTip: "2%",
+            company: '',
+            companyRate: .08,
+            companyTip: "8%",
+            total: '-'
+          },
+          {
+            name: "失业保险",
+            person: '',
+            personRate: .003,
+            personTip: "0.3%",
+            company: '',
+            companyRate: .007,
+            companyTip: "0.7%",
+            total: '-'
+          },
+          {
+            name: "工伤保险",
+            person: '',
+            personRate: 0,
+            personTip: "0%",
+            company: '',
+            companyRate: .004,
+            companyTip: "0.4%",
+            total: '-'
+          },
+          {
+            name: "生育保险",
+            person: '',
+            personRate: 0,
+            personTip: "0%",
+            company: '',
+            companyRate: .007,
+            companyTip: "0.7%",
+            total: '-'
+          },
+          {
+            name: "公积金",
+            person: '',
+            personRate: .5,
+            personTip: "5%",
+            company: '',
+            companyRate: .5,
+            companyTip: "5%",
+            total: '-'
+          }
+        ]
+      },
     ]
   },
   bindCityChange: function (e) {
