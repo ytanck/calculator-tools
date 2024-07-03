@@ -3,6 +3,7 @@
 <view >
 
   <view class="items-list-wrap wr-class">
+  <text class="item_name">开发中。。。</text>
   <block wx:for="{{itemsList}}" wx:for-item="item" wx:key="index" >
     <view wx:if="{{index==0}}" class="line"></view>
     <view class="item-list-wrap">

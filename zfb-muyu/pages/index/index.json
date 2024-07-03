@@ -1,0 +1,10 @@
+{
+    "defaultTitle": "木鱼",
+    "transparentTitle": "always",
+    "titleBarColor": "#f2f3ff",
+    "titlePenetrate": "YES",
+    "allowsBounceVertical": "NO",
+    "usingComponents": {
+        "action-item": "/component/actionItem/actionItem"
+    }
+}

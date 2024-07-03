@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+image {
+  width: 100%;
+  height: 100%;
+}
+.page-wraper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  position: relative;
+}
+.page-wraper .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('../../image/bg.webp') no-repeat center;
+  background-size: cover;
+}
+.page-wraper .merit-count {
+  position: absolute;
+  top: 12.5%;
+  right: 0rpx;
+  width: 750rpx;
+  height: 68rpx;
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #ffebbd;
+  text-align: center;
+  line-height: 68rpx;
+}
+.page-wraper .beads {
+  position: absolute;
+  top: 29.43349754%;
+  left: -38.8%;
+  width: 712rpx;
+  height: 712rpx;
+}
+.page-wraper .merit {
+  position: absolute;
+  left: 72%;
+  top: 65%;
+  transform: translateX(-50%);
+  font-size: 36rpx;
+  font-weight: 400;
+  color: #ffebbd;
+  opacity: 0;
+}
+.page-wraper .action {
+  position: absolute;
+  top: 14.96305419%;
+  right: 0rpx;
+}

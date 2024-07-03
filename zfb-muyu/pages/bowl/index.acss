@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.page-wraper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  position: relative;
+}
+.page-wraper .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('../../image/bg.webp') no-repeat center;
+  background-size: cover;
+}
+.page-wraper .merit-count {
+  position: absolute;
+  top: 12.5%;
+  right: 0rpx;
+  width: 750rpx;
+  height: 68rpx;
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #ffebbd;
+  text-align: center;
+  line-height: 68rpx;
+}
+.page-wraper .bowl {
+  position: absolute;
+  top: 51.04679803%;
+  left: 22.93333333%;
+  width: 406rpx;
+  height: 329rpx;
+  background: url('../../image/bowl.webp') no-repeat center;
+  background-size: 406rpx 329rpx;
+}
+.page-wraper .bowl-hammer {
+  position: absolute;
+  top: 40.39408867%;
+  right: 2.4%;
+  width: 153rpx;
+  height: 281rpx;
+  background: url('../../image/bowlHammer.webp') no-repeat center;
+  background-size: 153rpx 281rpx;
+}
+.page-wraper .merit {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translateX(-50%);
+  font-size: 36rpx;
+  font-weight: 400;
+  color: #ffebbd;
+  opacity: 0;
+}
+.page-wraper .action {
+  position: absolute;
+  top: 14.96305419%;
+  right: 0rpx;
+}

@@ -1,0 +1,44 @@
+.action {
+  width: 95rpx;
+  padding-right: 35rpx;
+}
+.action .item {
+  width: 60rpx;
+  height: 78rpx;
+  margin-top: 68rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.action .item .img {
+  width: 40rpx;
+  height: 40rpx;
+}
+.action .item .sound-open {
+  background: url('../image/open.webp') no-repeat center;
+  background-size: 40rpx 40rpx;
+}
+.action .item .sound-close {
+  background: url('../image/close.webp') no-repeat center;
+  background-size: 40rpx 40rpx;
+}
+.action .item .reset {
+  background: url('../image/reset.webp') no-repeat center;
+  background-size: 40rpx 40rpx;
+}
+.action .item .skin {
+  background: url('../image/skin.webp') no-repeat center;
+  background-size: 40rpx 40rpx;
+}
+.action .item .text {
+  width: 60rpx;
+  height: 34rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+}
+.action .item:first-child {
+  margin-top: 0;
+}

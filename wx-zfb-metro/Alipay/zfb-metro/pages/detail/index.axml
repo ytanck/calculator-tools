@@ -1,0 +1,28 @@
+<view class="page">
+    <view class="header" style="background: {{line.color}}">
+        <view class="left">
+            <view class="title">{{line.name}}</view>
+            <view class="path">{{line.from}} - {{line.to}}</view>
+        </view>
+        <view class="right">
+            <view class="count">全程{{line.stations.length}}站</view>
+        </view>
+    </view>
+
+    <view class="content">
+        <view class="desc">{{line.desc}}</view>
+
+        <view class="section-title" style="color: {{line.color}}">站点信息</view>
+        <view class="stations">
+            <view class="line" style="background: {{line.color}}"></view>
+            <view class="station" a:for="{{line.stations}}">
+                <view class="dot {{item.transfer && item.transfer.length > 0? 'has-transfer' : ''}}"
+                    style="color: {{line.color}}"></view>
+                <view class="name">{{item.name || item}}</view>
+                <view class="transfer" a:if="{{item.transfer && item.transfer.length}}">
+                    <view class="transfer-item" a:for="{{item.transfer}}" a:for-item="subItem">{{subItem}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,10 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/detail/index"
+    ],
+    "window": {
+        "defaultTitle": "全国地铁查询",
+        "allowsBounceVertical": "YES"
+    }
+}

@@ -74,12 +74,6 @@
         "text": "主页"
       },
       {
-        "pagePath": "pages/home/info/index",
-        "iconPath": "images/ic_info.png",
-        "selectedIconPath": "images/ic_info_select.png",
-        "text": "资讯"
-      },
-      {
         "pagePath": "pages/home/me/index",
         "iconPath": "images/ic_me.png",
         "selectedIconPath": "images/ic_me_select.png",

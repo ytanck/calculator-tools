@@ -1,0 +1,39 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/webview/webview",
+        "pages/beads/index",
+        "pages/bowl/index"
+    ],
+    "window": {
+        "defaultTitle": "",
+        "titleBarColor": "#fff",
+        "gestureBack": "YES",
+        "allowsBounceVertical": "YES"
+    },
+    "tabBar": {
+        "textColor": "#999999",
+        "selectedColor": "#ffebbd",
+        "backgroundColor": "#1c1c1c",
+        "items": [
+            {
+                "pagePath": "pages/index/index",
+                "name": "木鱼",
+                "icon": "https://xiaojinhe-cdn.iyoudui.cn/upload/common/20231020/image/icon-1.webp",
+                "activeIcon": "https://xiaojinhe-cdn.iyoudui.cn/upload/common/20231020/image/icon-1-ac.webp"
+            },
+            {
+                "pagePath": "pages/beads/index",
+                "name": "盘串",
+                "icon": "https://xiaojinhe-cdn.iyoudui.cn/upload/common/20231020/image/icon-2.webp",
+                "activeIcon": "https://xiaojinhe-cdn.iyoudui.cn/upload/common/20231020/image/icon-2-ac.webp"
+            },
+            {
+                "pagePath": "pages/bowl/index",
+                "name": "静心",
+                "icon": "https://xiaojinhe-cdn.iyoudui.cn/upload/common/20231020/image/icon-3.webp",
+                "activeIcon": "https://xiaojinhe-cdn.iyoudui.cn/upload/common/20231020/image/icon-3-ac.webp"
+            }
+        ]
+    }
+}

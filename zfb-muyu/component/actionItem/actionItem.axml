@@ -1,0 +1,14 @@
+<view class="action">
+    <view class="item" onTap="switchSound">
+        <view class="img {{voiced ? 'sound-open': 'sound-close'}}"></view>
+        <view class="text">声音</view>
+    </view>
+    <view class="item" onTap="resetData">
+        <view class="img reset"></view>
+        <view class="text">重置</view>
+    </view>
+    <view class="item" onTap="switchSkin" a:if="{{hasSkin}}">
+        <view class="img skin"></view>
+        <view class="text">皮肤</view>
+    </view>
+</view>

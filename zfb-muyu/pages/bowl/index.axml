@@ -1,0 +1,19 @@
+<view class="page-wraper">
+    <view class="bg" catchTap="meritUp"></view>
+    <view class="merit-count">{{meritCount}}</view>
+    <view class="bowl" catchTap="meritUp"></view>
+    <!-- <view class="bowl-hammer" catchTap="meritUp"
+        animation="{{animation}}"></view> -->
+    <view animation="{{agd0}}" class="merit">功德 + 1</view>
+    <view animation="{{agd1}}" class="merit">功德 + 1</view>
+    <view animation="{{agd2}}" class="merit">功德 + 1</view>
+    <view animation="{{agd3}}" class="merit">功德 + 1</view>
+    <view animation="{{agd4}}" class="merit">功德 + 1</view>
+    <view animation="{{agd5}}" class="merit">功德 + 1</view>
+    <view animation="{{agd6}}" class="merit">功德 + 1</view>
+    <view animation="{{agd7}}" class="merit">功德 + 1</view>
+    <view animation="{{agd8}}" class="merit">功德 + 1</view>
+    <view animation="{{agd9}}" class="merit">功德 + 1</view>
+    <action-item class="action" ref="onSaveRef" key="{{key}}" hasSkin="{{false}}" onSwitchSound="onSwitchSound"
+        onResetData="onResetData"></action-item>
+</view>

@@ -206,19 +206,21 @@ var json = {
         "id": "1567008750611730433",
         "sort": 12032,
         "type": "flag"
-      }, {
-        "extend": "N",
-        "isUse": "Y",
-        "path": "/pages/my_module/get_image/index",
-        "des": "每日一图",
-        "icon": "https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExlMexicLKZhWicgial9fM52Yp7tztOMW19AsFDAv3bGblshEt3wcJGGjkw/0?wx_fmt=png",
-        "name": "每日一图",
-        "typeName": "图片处理",
-        "typeId": 5,
-        "id": "1567009343237525505",
-        "sort": 30,
-        "type": "get_image"
-      }, {
+      }, 
+      // {
+      //   "extend": "N",
+      //   "isUse": "Y",
+      //   "path": "/pages/my_module/get_image/index",
+      //   "des": "每日一图",
+      //   "icon": "https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExlMexicLKZhWicgial9fM52Yp7tztOMW19AsFDAv3bGblshEt3wcJGGjkw/0?wx_fmt=png",
+      //   "name": "每日一图",
+      //   "typeName": "图片处理",
+      //   "typeId": 5,
+      //   "id": "1567009343237525505",
+      //   "sort": 30,
+      //   "type": "get_image"
+      // }, 
+      {
         "extend": "N",
         "isUse": "Y",
         "path": "/pages/my_module/screenshotConnect/screenshotConnect",
@@ -441,7 +443,7 @@ var json = {
       //   "path": "/pages/my_module/2048/2048",
       //   "des": "2048",
       //   "icon": "https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExAriaBibCA1nEEVIECLCzIp97HRcIpvlsmkzlDPxpGuiaAcRhEG9fibSXSw/0?wx_fmt=png",
-      //   "name": "2048游戏",
+      //   "name": "2048益智",
       //   "typeName": "娱乐工具",
       //   "typeId": 6,
       //   "id": "1567035718526832642",

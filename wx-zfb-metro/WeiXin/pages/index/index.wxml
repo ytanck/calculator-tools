@@ -1,0 +1,33 @@
+<view class="page">
+  <view class="section">
+    <picker bindchange="bindObjPickerChange" range="{{cityArray}}" range-key="label">
+      <view class="row">
+        <view class="row-title">请选择城市</view>
+        <view class="row-extra">当前选择：{{cityArray[arrIndex].label}}</view>
+      </view>
+    </picker>
+  </view>
+  <view class="city">
+    <view class="title">{{cityArray[arrIndex].label}}地铁图</view>
+    <image class="map" src="{{currentCity.map}}" bindtap="handlePreview" mode="widthFix">
+    </image>
+    <view class="tip">点击图片放大查看</view>
+  </view>
+
+  <view class="title">全部线路</view>
+  <view class="lines">
+    <view
+      wx:for="{{currentCity.lines}}"
+      wx:key="index"
+      class="line"
+      data-index="{{index}}"
+      data-item="{{item}}"
+      style="background: {{item.color}}"
+      bindtap="handleLineTap"
+    >
+      {{item.name}}
+    </view>
+  </view>
+
+
+</view>

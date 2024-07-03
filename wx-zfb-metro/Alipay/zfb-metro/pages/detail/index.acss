@@ -1,0 +1,85 @@
+.page {
+  padding-bottom: 100rpx;
+}
+.banner {
+  margin-bottom: 50rpx;
+}
+.header {
+  padding: 20rpx;
+  color: #FFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .title {
+  font-weight: bold;
+  padding: 10rpx;
+  font-size: 36rpx;
+}
+.header .right {
+  flex: 0 0 auto;
+}
+.header .right .count {
+  white-space: nowrap;
+}
+.content {
+  padding: 20rpx;
+}
+.desc {
+  margin-bottom: 50rpx;
+}
+.section-title {
+  padding: 20rpx 0;
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.stations {
+  position: relative;
+  padding-left: 60rpx;
+}
+.stations .line {
+  position: absolute;
+  z-index: 1;
+  left: 22rpx;
+  top: 20rpx;
+  width: 6rpx;
+  border-radius: 3rpx;
+  height: calc(100% - 40rpx);
+}
+.stations .station {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0;
+}
+.stations .station .dot {
+  width: 20rpx;
+  height: 20rpx;
+  border: 6rpx solid currentColor;
+  border-radius: 50%;
+  margin-left: -50rpx;
+  margin-right: 20rpx;
+  background-color: #FFF;
+}
+.stations .station .dot.has-transfer {
+  background-color: currentColor;
+}
+.stations .station .name {
+  margin-right: 20rpx;
+  flex: 1;
+  white-space: nowrap;
+}
+.stations .station .transfer {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.stations .station .transfer .transfer-item {
+  margin-right: 10rpx;
+  font-size: 28rpx;
+  border: 1px solid #000;
+  border-radius: 6rpx;
+  padding: 3rpx 6rpx;
+  white-space: nowrap;
+}

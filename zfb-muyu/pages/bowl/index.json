@@ -1,0 +1,10 @@
+{
+    "defaultTitle": "静心",
+    "transparentTitle": "always",
+    "titleBarColor": "#f2f3ff",
+    "titlePenetrate": "YES",
+    "allowsBounceVertical": "NO",
+    "usingComponents": {
+        "action-item": "/component/actionItem/actionItem"
+    }
+}

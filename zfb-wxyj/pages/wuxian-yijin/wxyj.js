@@ -1,9 +1,9 @@
 Page({
   data: {
-    cities: ["北京", "上海", "深圳", "杭州", "南昌", "抚州",'武汉'],
-    cityIndex: 0,
+    cities: ["北京", "上海", "深圳", "杭州", "南昌",'武汉','重庆','天津','成都'],
+    cityIndex: 2,
 
-    types: ["城镇", "五险", "深户一档", "城镇", "五险", "不限"],
+    types: ["城镇", "五险", "深户一档", "城镇", "五险"],
     shebao: 3082,
     gjj: 2148,
     personTotal: '-',
@@ -367,73 +367,6 @@ Page({
         ]
       },
       {
-        city: "抚州",
-        shebao: { min: 2547, max: 12732 },
-        gjj: { min: 1510, max: 10023 },
-        detail: [
-          {
-            name: "养老保险",
-            person: '',
-            personRate: .08,
-            personTip: "8%",
-            company: '',
-            companyRate: .19,
-            companyTip: "19%",
-            total: '-'
-          },
-          {
-            name: "医疗保险",
-            person: '',
-            personRate: .02,
-            personTip: "2%",
-            company: '',
-            companyRate: .075,
-            companyTip: "7.5%",
-            total: '-'
-          },
-          {
-            name: "失业保险",
-            person: '',
-            personRate: .005,
-            personTip: "0.5%",
-            company: '',
-            companyRate: .005,
-            companyTip: "0.5%",
-            total: '-'
-          },
-          {
-            name: "工伤保险",
-            person: '',
-            personRate: 0,
-            personTip: "0%",
-            company: '',
-            companyRate: .006,
-            companyTip: "0.6%",
-            total: '-'
-          },
-          {
-            name: "生育保险",
-            person: '',
-            personRate: 0,
-            personTip: "0%",
-            company: '',
-            companyRate: .005,
-            companyTip: "0.5%",
-            total: '-'
-          },
-          {
-            name: "公积金",
-            person: '',
-            personRate: .08,
-            personTip: "8%",
-            company: '',
-            companyRate: .08,
-            companyTip: "8%",
-            total: '-'
-          }
-        ]
-      },
-      {
         city: "武汉",
         shebao: { min: 4224, max: 21120 },
         gjj: { min: 1800, max: 31098 },
@@ -486,6 +419,207 @@ Page({
             company: '',
             companyRate: .007,
             companyTip: "0.7%",
+            total: '-'
+          },
+          {
+            name: "公积金",
+            person: '',
+            personRate: .5,
+            personTip: "5%",
+            company: '',
+            companyRate: .5,
+            companyTip: "5%",
+            total: '-'
+          }
+        ]
+      },
+      {
+        city: "重庆",
+        shebao: { min: 4118, max: 20587 },
+        gjj: { min: 1800, max: 27856 },
+        detail: [
+          {
+            name: "养老保险",
+            person: '',
+            personRate: .08,
+            personTip: "8%",
+            company: '',
+            companyRate: .16,
+            companyTip: "16%",
+            total: '-'
+          },
+          {
+            name: "医疗保险",
+            person: '',
+            personRate: .02,
+            personTip: "2%",
+            company: '',
+            companyRate: .085,
+            companyTip: "8.5%",
+            total: '-'
+          },
+          {
+            name: "失业保险",
+            person: '',
+            personRate: .005,
+            personTip: "0.5%",
+            company: '',
+            companyRate: .005,
+            companyTip: "0.5%",
+            total: '-'
+          },
+          {
+            name: "工伤保险",
+            person: '',
+            personRate: 0,
+            personTip: "0%",
+            company: '',
+            companyRate: .006,
+            companyTip: "0.6%",
+            total: '-'
+          },
+          {
+            name: "生育保险",
+            person: '',
+            personRate: 0,
+            personTip: "0%",
+            company: '',
+            companyRate: .007,
+            companyTip: "0.7%",
+            total: '-'
+          },
+          {
+            name: "公积金",
+            person: '',
+            personRate: .7,
+            personTip: "7%",
+            company: '',
+            companyRate: .7,
+            companyTip: "7%",
+            total: '-'
+          }
+        ]
+      },
+      {
+        city: "天津",
+        shebao: { min: 4751, max: 23757 },
+        gjj: { min: 2180, max: 26451 },
+        detail: [
+          {
+            name: "养老保险",
+            person: '',
+            personRate: .08,
+            personTip: "8%",
+            company: '',
+            companyRate: .16,
+            companyTip: "16%",
+            total: '-'
+          },
+          {
+            name: "医疗保险",
+            person: '',
+            personRate: .02,
+            personTip: "2%",
+            company: '',
+            companyRate: .1,
+            companyTip: "10%",
+            total: '-'
+          },
+          {
+            name: "失业保险",
+            person: '',
+            personRate: .005,
+            personTip: "0.5%",
+            company: '',
+            companyRate: .005,
+            companyTip: "0.5%",
+            total: '-'
+          },
+          {
+            name: "工伤保险",
+            person: '',
+            personRate: 0,
+            personTip: "0%",
+            company: '',
+            companyRate: .002,
+            companyTip: "0.2%",
+            total: '-'
+          },
+          {
+            name: "生育保险",
+            person: '',
+            personRate: 0,
+            personTip: "0%",
+            company: '',
+            companyRate: .005,
+            companyTip: "0.5%",
+            total: '-'
+          },
+          {
+            name: "公积金",
+            person: '',
+            personRate: 1.1,
+            personTip: "11%",
+            company: '',
+            companyRate: 1.1,
+            companyTip: "11%",
+            total: '-'
+          }
+        ]
+      },
+      {
+        city: "成都",
+        shebao: { min: 4246, max: 21228 },
+        gjj: { min: 1970, max: 27790 },
+        detail: [
+          {
+            name: "养老保险",
+            person: '',
+            personRate: .08,
+            personTip: "8%",
+            company: '',
+            companyRate: .16,
+            companyTip: "16%",
+            total: '-'
+          },
+          {
+            name: "医疗保险",
+            person: '',
+            personRate: .02,
+            personTip: "2%",
+            company: '',
+            companyRate: .065,
+            companyTip: "6.5%",
+            total: '-'
+          },
+          {
+            name: "失业保险",
+            person: '',
+            personRate: .006,
+            personTip: "0.6%",
+            company: '',
+            companyRate: .004,
+            companyTip: "0.4%",
+            total: '-'
+          },
+          {
+            name: "工伤保险",
+            person: '',
+            personRate: 0,
+            personTip: "0%",
+            company: '',
+            companyRate: .005,
+            companyTip: "0.5%",
+            total: '-'
+          },
+          {
+            name: "生育保险",
+            person: '',
+            personRate: 0,
+            personTip: "0%",
+            company: '',
+            companyRate: .008,
+            companyTip: "0.8%",
             total: '-'
           },
           {

@@ -1,0 +1,54 @@
+.page {
+  padding-bottom: 100rpx;
+}
+.banner {
+  margin-bottom: 50rpx;
+}
+.title {
+  font-weight: bold;
+  padding: 10rpx 20rpx;
+  font-size: 36rpx;
+}
+.map {
+  width: 100%;
+}
+.tip {
+  padding: 10rpx 20rpx;
+  text-align: center;
+}
+.lines {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx;
+}
+.lines .line {
+  flex: 0 0 auto;
+  width: auto;
+  white-space: nowrap;
+  padding: 20rpx 30rpx;
+  margin: 10rpx;
+  color: #FFF;
+  border-radius: 6rpx;
+}
+
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+.row-title {
+  font-weight: bold;
+  font-size: 36rpx;
+  flex: 1;
+  padding-top: 28rpx;
+  padding-bottom: 28rpx;
+  color: #000;
+}
+
+.row-extra {
+  flex-basis: initial;
+  font-size: 32rpx;
+  color: #888;
+}

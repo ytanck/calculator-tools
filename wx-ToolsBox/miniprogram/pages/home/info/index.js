@@ -18,7 +18,7 @@ Page({
     wx.setNavigationBarTitle({
       title: this.data.title
     });
-    this.getItem()
+    // this.getItem()
 
   },
   getItem() {

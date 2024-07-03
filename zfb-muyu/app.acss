@@ -1,0 +1,36 @@
+page {
+  /* flex: 1; */
+  /* display: flex; */
+  background: #f2f2f2;
+  overflow-x: hidden;
+  font-family: PingFangSC-Regular;
+}
+image {
+  vertical-align: top;
+}
+.empty-style {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.empty-style .empty-img {
+  width: 326rpx;
+  height: 203rpx;
+  margin: 100rpx auto 0;
+  background: url(https://ctopmweb.oss-cn-beijing.aliyuncs.com/dianxinApp/static/images/img_empty.png);
+  background-size: 326rpx 203rpx;
+}
+.empty-style .empty-msg {
+  text-align: center;
+  margin-top: 64rpx;
+  color: #8a96a3;
+  font-size: 28rpx;
+}
+.greyCol {
+  color: #999999 !important;
+}
+.redCol {
+  color: #ed4040 !important;
+}
